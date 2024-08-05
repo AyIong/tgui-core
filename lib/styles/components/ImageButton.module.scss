@@ -7,7 +7,7 @@
 @use '../base.scss';
 @use '../colors.scss';
 @use '../functions.scss' as *;
-@use './Divider.scss';
+@use './Divider.module.scss' as Divider;
 
 $color-default: colors.bg(base.$color-bg-section) !default;
 $color-disabled: #631d1d !default;
