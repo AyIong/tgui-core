@@ -17,29 +17,28 @@ import { Image } from './Image';
 import { Stack } from './Stack';
 import { Tooltip } from './Tooltip';
 
-type Props = Required<{}> &
-  Partial<{
-    asset: string;
-    base64: string;
-    buttons: ReactNode;
-    buttonsAlt: boolean;
-    children: ReactNode;
-    className: string;
-    color: string;
-    disabled: BooleanLike;
-    dmFallback: ReactNode;
-    dmIcon: string | null;
-    dmIconState: string | null;
-    fluid: boolean;
-    imageSize: number;
-    imageSrc: string;
-    onClick: (e: any) => void;
-    onRightClick: (e: any) => void;
-    selected: BooleanLike;
-    title: string;
-    tooltip: ReactNode;
-    tooltipPosition: Placement;
-  }> &
+type Props = Partial<{
+  asset: string;
+  base64: string;
+  buttons: ReactNode;
+  buttonsAlt: boolean;
+  children: ReactNode;
+  className: string;
+  color: string;
+  disabled: BooleanLike;
+  dmFallback: ReactNode;
+  dmIcon: string | null;
+  dmIconState: string | null;
+  fluid: boolean;
+  imageSize: number;
+  imageSrc: string;
+  onClick: (e: any) => void;
+  onRightClick: (e: any) => void;
+  selected: BooleanLike;
+  title: string;
+  tooltip: ReactNode;
+  tooltipPosition: Placement;
+}> &
   BoxProps;
 
 export function ImageButton(props: Props) {
@@ -83,9 +82,9 @@ export function ImageButton(props: Props) {
   let buttonContent = (
     <div
       className={classes([
-        styles.container,
-        buttons && styles.containerWithButtons,
-        !onClick && !onRightClick && styles.noAction,
+        styles.ImageButton__container,
+        buttons && styles.ImageButton__hasButtons,
+        !onClick && !onRightClick && styles.ImageButton__noAction,
         selected && styles.selected,
         disabled && styles.disabled,
         color && typeof color === 'string'
@@ -106,7 +105,7 @@ export function ImageButton(props: Props) {
       }}
       style={{ width: !fluid ? `calc(${imageSize}px + 0.5em + 2px)` : 'auto' }}
     >
-      <div className={classes([styles.image])}>
+      <div className={classes([styles.ImageButton__image])}>
         {base64 || asset || imageSrc ? (
           <Image
             className={classes([!base64 && !imageSrc && asset])}
@@ -127,31 +126,31 @@ export function ImageButton(props: Props) {
         )}
       </div>
       {fluid ? (
-        <div className={classes([styles.fluidInfo])}>
+        <div className={classes([styles.ImageButton__fluid__info])}>
           {title && (
             <span
               className={classes([
-                styles.fluidTitle,
-                children && styles.fluidDivider,
+                styles.ImageButton__fluid__title,
+                children && styles.ImageButton__fluid__title__divider,
               ])}
             >
               {title}
             </span>
           )}
           {children && (
-            <span className={classes([styles.fluidContent])}>{children}</span>
+            <span className={classes([styles.ImageButton__fluid__content])}>{children}</span>
           )}
         </div>
       ) : (
         children && (
           <span
             className={classes([
-              styles.content,
-              selected && styles.selectedContent,
-              disabled && styles.disabledContent,
+              styles.ImageButton__content,
+              selected && styles.contentSelected,
+              disabled && styles.contentDisabled,
               color && typeof color === 'string'
-                ? styles['colorContent__' + color]
-                : styles['colorContent__default'],
+                ? styles['contentColor__' + color]
+                : styles['contentColor__default'],
             ])}
           >
             {children}
@@ -171,19 +170,19 @@ export function ImageButton(props: Props) {
 
   return (
     <div
-      className={classes([fluid ? styles.fluid : styles.button, className])}
+      className={classes([fluid ? styles.ImageButton__fluid : styles.ImageButton, className])}
       {...computeBoxProps(rest)}
     >
       {buttonContent}
       {buttons && (
         <div
           className={classes([
-            styles.buttonsContainer,
-            buttonsAlt && styles.buttonsContainerAlt,
-            !children && styles.buttonsContainerEmpty,
+            styles.ImageButton__buttons,
+            buttonsAlt && styles.ImageButton__buttons__alt,
+            !children && styles.ImageButton__buttons__noContent,
             fluid && color && typeof color === 'string'
-              ? styles['colorButtonsContainer__' + color]
-              : styles['colorButtonsContainer__default'],
+              ? styles['buttonsContainerColor__' + color]
+              : fluid && styles['buttonsContainerColor__default'],
           ])}
           style={{
             width: buttonsAlt ? `calc(${imageSize}px + 0.5em)` : 'auto',

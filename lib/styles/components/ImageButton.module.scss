@@ -4,15 +4,16 @@
  * @license MIT
  */
 
-@use '../base.scss';
-@use '../colors.scss';
-@use '../functions.scss' as *;
-@use './Divider.module.scss' as Divider;
-
+ @use '../base.scss';
+ @use '../colors.scss';
+ @use '../functions.scss' as *;
+ 
 $color-default: colors.bg(base.$color-bg-section) !default;
 $color-disabled: #631d1d !default;
 $color-selected: colors.bg(colors.$green) !default;
 $color-content: colors.$primary !default;
+$color-divider: rgba(255, 255, 255, 0.1) !default;
+$divider-thickness: base.em(2px) !default;
 $bg-map: colors.$bg-map !default;
 
 @mixin button-style(
@@ -42,11 +43,11 @@ $bg-map: colors.$bg-map !default;
 }
 
 @each $color-name, $color-value in $bg-map {
-  .Color--#{$color-name} {
+  .color__#{$color-name} {
     @include button-style($color-value, $border-width: 1px);
   }
 
-  .Content__Color--#{$color-name} {
+  .contentColor__#{$color-name} {
     @include button-style(
       $color-value,
       $border-color: lighten($color-value, 25%),
@@ -55,7 +56,7 @@ $bg-map: colors.$bg-map !default;
     );
   }
 
-  .ButtonsContainer__Color--#{$color-name} {
+  .buttonsContainerColor__#{$color-name} {
     @include button-style(
       $color-value,
       $border-width: 1px 1px 1px 0,
@@ -65,7 +66,7 @@ $bg-map: colors.$bg-map !default;
   }
 }
 
-.Color--default {
+.color__default {
   @include button-style(lighten($color-default, 85%), $border-width: 1px);
 }
 
@@ -82,7 +83,7 @@ $bg-map: colors.$bg-map !default;
   );
 }
 
-.Content__Color--default {
+.contentColor__default {
   @include button-style(
     lighten($color-default, 80%),
     $border-color: lighten($color-default, 100%),
@@ -91,12 +92,12 @@ $bg-map: colors.$bg-map !default;
   );
 }
 
-.Content--disabled {
+.contentDisabled {
   background-color: $color-disabled !important;
   border-top: 1px solid lighten($color-disabled, 25%) !important;
 }
 
-.Content--selected {
+.contentSelected {
   @include button-style(
     $color-selected,
     $border-color: lighten($color-selected, 25%),
@@ -105,7 +106,7 @@ $bg-map: colors.$bg-map !default;
   );
 }
 
-.ButtonsContainer__Color--default {
+.buttonsContainerColor__default {
   @include button-style(
     lighten($color-default, 85%),
     $border-width: 1px 1px 1px 0,
@@ -120,7 +121,7 @@ $bg-map: colors.$bg-map !default;
   text-align: center;
   margin: 0.25em;
 
-  &--noAction {
+  &__noAction {
     pointer-events: none;
   }
 
@@ -145,7 +146,7 @@ $bg-map: colors.$bg-map !default;
     bottom: 1.8em;
     max-width: 100%;
 
-    &--alt {
+    &__alt {
       overflow: visible;
       flex-direction: column;
       pointer-events: none;
@@ -153,7 +154,7 @@ $bg-map: colors.$bg-map !default;
       bottom: inherit !important;
     }
 
-    &--noContent {
+    &__noContent {
       bottom: 1px;
     }
 
@@ -188,7 +189,7 @@ $bg-map: colors.$bg-map !default;
     margin-bottom: 0;
   }
 
-  &--info {
+  &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -198,16 +199,16 @@ $bg-map: colors.$bg-map !default;
     margin: 0 0.5em;
   }
 
-  &--title {
+  &__title {
     font-weight: bold;
     padding: 0.5em;
 
-    &--divider {
-      border-bottom: Divider.$thickness solid Divider.$color;
+    &__divider {
+      border-bottom: $divider-thickness solid $color-divider;
     }
   }
 
-  &--content {
+  &__content {
     display: flex;
     justify-content: space-between;
     padding: 0.5em;
@@ -219,7 +220,7 @@ $bg-map: colors.$bg-map !default;
       flex-direction: row;
       flex: 1;
 
-      &--hasButtons {
+      &__hasButtons {
         border-radius: 0.33em 0 0 0.33em;
       }
     }
@@ -236,8 +237,6 @@ $bg-map: colors.$bg-map !default;
 
       &--alt {
         overflow: hidden;
-        flex-direction: column;
-        top: inherit;
       }
 
       & > * {
@@ -247,12 +246,21 @@ $bg-map: colors.$bg-map !default;
         text-align: center;
         white-space: pre-wrap;
         line-height: base.em(14px);
-        height: 100%;
         border-left: 1px solid rgba(255, 255, 255, 0.075);
-        border-top: 1px solid rgba(255, 255, 255, 0.075);
+      }
 
-        &:first-child {
-          border-top: 0;
+      &--alt {
+        flex-direction: column;
+        top: inherit;
+
+        & > * {
+          height: 100%;
+          border-left: 1px solid rgba(255, 255, 255, 0.075);
+          border-top: 1px solid rgba(255, 255, 255, 0.075);
+
+          &:first-child {
+            border-top: 0;
+          }
         }
       }
     }

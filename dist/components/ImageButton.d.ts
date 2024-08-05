@@ -3,7 +3,7 @@ import { BooleanLike } from '../common/react';
 import { ReactNode } from 'react';
 import { BoxProps } from './Box';
 
-type Props = Required<{}> & Partial<{
+type Props = Partial<{
     asset: string;
     base64: string;
     buttons: ReactNode;
