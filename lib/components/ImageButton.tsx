@@ -110,11 +110,7 @@ export const ImageButton = (props: Props) => {
         {base64 || asset || imageSrc ? (
           <Image
             className={classes([!base64 && !imageSrc && asset])}
-            src={
-              base64
-                ? `data:image/jpeg;base64,${base64}`
-                : imageSrc
-            }
+            src={base64 ? `data:image/jpeg;base64,${base64}` : imageSrc}
             height={`${imageSize}px`}
             width={`${imageSize}px`}
           />
@@ -134,7 +130,8 @@ export const ImageButton = (props: Props) => {
         <div className={classes([styles.fluidInfo])}>
           {title && (
             <span
-              className={classes([styles.fluidTitle,
+              className={classes([
+                styles.fluidTitle,
                 children && styles.fluidDivider,
               ])}
             >
@@ -142,9 +139,7 @@ export const ImageButton = (props: Props) => {
             </span>
           )}
           {children && (
-            <span className={classes([styles.fluidContent])}>
-              {children}
-            </span>
+            <span className={classes([styles.fluidContent])}>{children}</span>
           )}
         </div>
       ) : (
@@ -176,10 +171,7 @@ export const ImageButton = (props: Props) => {
 
   return (
     <div
-      className={classes([
-        fluid ? styles.fluid : styles.button,
-        className,
-      ])}
+      className={classes([fluid ? styles.fluid : styles.button, className])}
       {...computeBoxProps(rest)}
     >
       {buttonContent}
