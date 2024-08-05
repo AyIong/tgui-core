@@ -42,7 +42,7 @@ type Props = Required<{}> &
   }> &
   BoxProps;
 
-export const ImageButton = (props: Props) => {
+export function ImageButton(props: Props) {
   const {
     asset,
     base64,

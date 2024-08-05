@@ -88,11 +88,12 @@ import '../assets/ImageButton.css';const T = "_horizontal_1ele3_27", q = "_hidde
   "ImageButton__fluid--title--divider": "_ImageButton__fluid--title--divider_1ele3_689",
   "ImageButton__fluid--content": "_ImageButton__fluid--content_1ele3_692",
   "ImageButton__container--hasButtons": "_ImageButton__container--hasButtons_1ele3_702"
-}, eo = (x) => {
+};
+function eo(x) {
   const {
     asset: m,
     base64: a,
-    buttons: s,
+    buttons: u,
     buttonsAlt: b,
     children: l,
     className: $,
@@ -103,7 +104,7 @@ import '../assets/ImageButton.css';const T = "_horizontal_1ele3_27", q = "_hidde
     dmIconState: h,
     fluid: i,
     imageSize: _ = 64,
-    imageSrc: u,
+    imageSrc: s,
     onClick: d,
     onRightClick: c,
     selected: I,
@@ -125,7 +126,7 @@ import '../assets/ImageButton.css';const T = "_horizontal_1ele3_27", q = "_hidde
     {
       className: n([
         o.container,
-        s && o.containerWithButtons,
+        u && o.containerWithButtons,
         !d && !c && o.noAction,
         I && o.selected,
         C && o.disabled,
@@ -140,11 +141,11 @@ import '../assets/ImageButton.css';const T = "_horizontal_1ele3_27", q = "_hidde
       },
       style: { width: i ? "auto" : `calc(${_}px + 0.5em + 2px)` },
       children: [
-        /* @__PURE__ */ e("div", { className: n([o.image]), children: a || m || u ? /* @__PURE__ */ e(
+        /* @__PURE__ */ e("div", { className: n([o.image]), children: a || m || s ? /* @__PURE__ */ e(
           F,
           {
-            className: n([!a && !u && m]),
-            src: a ? `data:image/jpeg;base64,${a}` : u,
+            className: n([!a && !s && m]),
+            src: a ? `data:image/jpeg;base64,${a}` : s,
             height: `${_}px`,
             width: `${_}px`
           }
@@ -192,7 +193,7 @@ import '../assets/ImageButton.css';const T = "_horizontal_1ele3_27", q = "_hidde
       ...S(A),
       children: [
         g,
-        s && /* @__PURE__ */ e(
+        u && /* @__PURE__ */ e(
           "div",
           {
             className: n([
@@ -204,13 +205,13 @@ import '../assets/ImageButton.css';const T = "_horizontal_1ele3_27", q = "_hidde
             style: {
               width: b ? `calc(${_}px + 0.5em)` : "auto"
             },
-            children: s
+            children: u
           }
         )
       ]
     }
   );
-};
+}
 export {
   eo as ImageButton
 };

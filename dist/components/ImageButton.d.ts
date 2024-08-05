@@ -25,5 +25,5 @@ type Props = Required<{}> & Partial<{
     tooltip: ReactNode;
     tooltipPosition: Placement;
 }> & BoxProps;
-export declare const ImageButton: (props: Props) => import("react/jsx-runtime").JSX.Element;
+export declare function ImageButton(props: Props): import("react/jsx-runtime").JSX.Element;
 export {};
