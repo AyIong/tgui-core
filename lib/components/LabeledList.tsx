@@ -132,9 +132,7 @@ function LabeledListItem(props: LabeledListItemProps) {
         {content}
         {children}
       </Box>
-      {buttons && (
-        <td className="LabeledList__cell LabeledList__buttons">{buttons}</td>
-      )}
+      {buttons && <td className="LabeledList__cell LabeledList__buttons">{buttons}</td>}
     </tr>
   );
 }

@@ -1,10 +1,4 @@
-import {
-  Button,
-  LabeledControls,
-  RoundGauge,
-  Section,
-  Stack,
-} from '@components';
+import { Button, LabeledControls, RoundGauge, Section, Stack } from '@components';
 import { type ComponentProps, type PropsWithChildren, useState } from 'react';
 import type { Meta } from 'storybook-react-rsbuild';
 
@@ -86,9 +80,7 @@ export const WithRanges = {
   render: () => {
     return (
       <Stack fill justify="center">
-        <RoundGaugePreview
-          ranges={{ average: [50, 75], bad: [75, 100], good: [0, 50] }}
-        />
+        <RoundGaugePreview ranges={{ average: [50, 75], bad: [75, 100], good: [0, 50] }} />
       </Stack>
     );
   },

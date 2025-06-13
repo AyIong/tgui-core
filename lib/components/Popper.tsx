@@ -42,14 +42,7 @@ type Props = {
  * - [View documentation on tgui core](https://tgstation.github.io/tgui-core/?path=/docs/components-popper--docs)
  */
 export function Popper(props: Props) {
-  const {
-    baseZIndex = 5,
-    children,
-    content,
-    isOpen,
-    onClickOutside,
-    placement,
-  } = props;
+  const { baseZIndex = 5, children, content, isOpen, onClickOutside, placement } = props;
 
   const { refs, floatingStyles, context } = useFloating({
     middleware: [offset(5), flip(), shift()],

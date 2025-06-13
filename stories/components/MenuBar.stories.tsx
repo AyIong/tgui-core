@@ -48,34 +48,15 @@ export const Default: StoryObj<StoryProps> = {
 
     return (
       <MenuBar>
-        <MenuBar.Dropdown
-          {...args}
-          {...menuBarProps}
-          display="File"
-          entry="file"
-        >
-          <MenuBar.Dropdown.MenuItem
-            displayText="Open File"
-            onClick={closeMenu}
-          />
+        <MenuBar.Dropdown {...args} {...menuBarProps} display="File" entry="file">
+          <MenuBar.Dropdown.MenuItem displayText="Open File" onClick={closeMenu} />
           <MenuBar.Dropdown.MenuItem displayText="Save" onClick={closeMenu} />
-          <MenuBar.Dropdown.MenuItem
-            displayText="Save As"
-            onClick={closeMenu}
-          />
+          <MenuBar.Dropdown.MenuItem displayText="Save As" onClick={closeMenu} />
           <MenuBar.Dropdown.Separator />
           <MenuBar.Dropdown.MenuItem displayText="Exit" onClick={closeMenu} />
         </MenuBar.Dropdown>
-        <MenuBar.Dropdown
-          {...args}
-          {...menuBarProps}
-          display="Settings"
-          entry="settings"
-        >
-          <MenuBar.Dropdown.MenuItem
-            displayText="User Settings"
-            onClick={closeMenu}
-          />
+        <MenuBar.Dropdown {...args} {...menuBarProps} display="Settings" entry="settings">
+          <MenuBar.Dropdown.MenuItem displayText="User Settings" onClick={closeMenu} />
           <MenuBar.Dropdown.MenuItemToggle
             checked={checkbox}
             displayText="Save on file edit"
@@ -84,16 +65,8 @@ export const Default: StoryObj<StoryProps> = {
             }}
           />
         </MenuBar.Dropdown>
-        <MenuBar.Dropdown
-          {...args}
-          {...menuBarProps}
-          display="Help"
-          entry="help"
-        >
-          <MenuBar.Dropdown.MenuItem
-            displayText="More Info"
-            onClick={closeMenu}
-          />
+        <MenuBar.Dropdown {...args} {...menuBarProps} display="Help" entry="help">
+          <MenuBar.Dropdown.MenuItem displayText="More Info" onClick={closeMenu} />
         </MenuBar.Dropdown>
       </MenuBar>
     );

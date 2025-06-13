@@ -131,9 +131,7 @@ type DangerDoNotUse = {
  *
  * - [View documentation on tgui core](https://tgstation.github.io/tgui-core/?path=/docs/components-box--docs)
  */
-export function Box<TElement = HTMLDivElement>(
-  props: BoxProps<TElement> & DangerDoNotUse,
-) {
+export function Box<TElement = HTMLDivElement>(props: BoxProps<TElement> & DangerDoNotUse) {
   const { as = 'div', className, children, tw, ...rest } = props;
 
   const computedClassName = className

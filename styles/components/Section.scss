@@ -16,8 +16,7 @@
 .Section__title {
   position: relative;
   padding: var(--space-m);
-  border-bottom: var(--section-separator-thickness) solid
-    var(--section-separator-color);
+  border-bottom: var(--section-separator-thickness) solid var(--section-separator-color);
 }
 
 .Section__titleText {

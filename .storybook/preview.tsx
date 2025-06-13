@@ -3,13 +3,7 @@ import previewTheme from './previewTheme.ts';
 import '../stories/assets/fonts.css';
 import '../stories/assets/all.min.css';
 import '../styles/main.scss';
-import {
-  Controls,
-  Description,
-  Primary,
-  Stories,
-  Subtitle,
-} from '@storybook/addon-docs/blocks';
+import { Controls, Description, Primary, Stories, Subtitle } from '@storybook/addon-docs/blocks';
 
 const preview: Preview = {
   parameters: {

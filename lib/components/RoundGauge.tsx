@@ -90,12 +90,7 @@ export function RoundGauge(props: Props) {
 
   function shouldShowAlert() {
     // If both after and before alert props are set, and value is between them
-    if (
-      alertAfter &&
-      alertBefore &&
-      value > alertAfter &&
-      value < alertBefore
-    ) {
+    if (alertAfter && alertBefore && value > alertAfter && value < alertBefore) {
       return true;
     }
     // If only alertAfter is set and value is greater than alertAfter
@@ -110,17 +105,11 @@ export function RoundGauge(props: Props) {
     return false;
   }
 
-  const alertColor =
-    shouldShowAlert() && keyOfMatchingRange(clampedValue, scaledRanges);
-
+  const alertColor = shouldShowAlert() && keyOfMatchingRange(clampedValue, scaledRanges);
   return (
     <div className="RoundGauge__wrapper">
       <div
-        className={classes([
-          'RoundGauge',
-          className,
-          computeBoxClassName(rest),
-        ])}
+        className={classes(['RoundGauge', className, computeBoxClassName(rest)])}
         {...computeBoxProps({
           style: {
             fontSize: `${size}em`,
@@ -164,20 +153,9 @@ export function RoundGauge(props: Props) {
               );
             })}
           </g>
-          <g
-            className="RoundGauge__needle"
-            transform={`rotate(${clampedValue * 180 - 90} 50 50)`}
-          >
-            <polygon
-              className="RoundGauge__needleLine"
-              points="46,50 50,0 54,50"
-            />
-            <circle
-              className="RoundGauge__needleMiddle"
-              cx="50"
-              cy="50"
-              r="8"
-            />
+          <g className="RoundGauge__needle" transform={`rotate(${clampedValue * 180 - 90} 50 50)`}>
+            <polygon className="RoundGauge__needleLine" points="46,50 50,0 54,50" />
+            <circle className="RoundGauge__needleMiddle" cx="50" cy="50" r="8" />
           </g>
           <title>alert</title>
         </svg>

@@ -22,14 +22,10 @@ export const Default: Story = {
       >
         <Stack g={5} vertical>
           <Tooltip content="Tooltip content">
-            <div style={{ border: 'thin solid red', padding: '5px' }}>
-              Hover me
-            </div>
+            <div style={{ border: 'thin solid red', padding: '5px' }}>Hover me</div>
           </Tooltip>
           <Tooltip content={false && 'Tooltip'}>
-            <div style={{ border: 'thin solid blue', padding: '5px' }}>
-              My content is falsy
-            </div>
+            <div style={{ border: 'thin solid blue', padding: '5px' }}>My content is falsy</div>
           </Tooltip>
         </Stack>
       </div>

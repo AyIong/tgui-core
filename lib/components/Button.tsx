@@ -129,8 +129,7 @@ export function Button(props: Props) {
         iconPosition && `Button--icon-${iconPosition}`,
         verticalAlignContent && 'Button--flex',
         verticalAlignContent && fluid && 'Button--flex--fluid',
-        verticalAlignContent &&
-          `Button--verticalAlignContent--${verticalAlignContent}`,
+        verticalAlignContent && `Button--verticalAlignContent--${verticalAlignContent}`,
         color && typeof color === 'string' && `Button--color--${color}`,
         className,
         computeBoxClassName(rest),
@@ -162,18 +161,9 @@ export function Button(props: Props) {
       tabIndex={!disabled ? 0 : undefined}
       {...computeBoxProps(rest)}
     >
-      <div
-        className={classes([
-          'Button__content',
-          ellipsis && 'Button__content--ellipsis',
-        ])}
-      >
+      <div className={classes(['Button__content', ellipsis && 'Button__content--ellipsis'])}>
         {icon && iconPosition !== 'right' && buttonIcon}
-        {!ellipsis ? (
-          toDisplay
-        ) : (
-          <span className="Button--ellipsis">{toDisplay}</span>
-        )}
+        {!ellipsis ? toDisplay : <span className="Button--ellipsis">{toDisplay}</span>}
         {icon && iconPosition === 'right' && buttonIcon}
       </div>
     </div>

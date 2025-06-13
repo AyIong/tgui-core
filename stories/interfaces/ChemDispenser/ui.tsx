@@ -1,13 +1,6 @@
 import type { BooleanLike } from '@common/react';
 import { toTitleCase } from '@common/string';
-import {
-  Box,
-  Button,
-  Icon,
-  LabeledList,
-  ProgressBar,
-  Section,
-} from '@components';
+import { Box, Button, Icon, LabeledList, ProgressBar, Section } from '@components';
 import { useState } from 'react';
 import { Window } from '../../layouts';
 import { type Beaker, BeakerDisplay } from '../common/BeakerDisplay';
@@ -70,11 +63,7 @@ export const ChemDispenser = (props) => {
               <Button
                 icon="book"
                 disabled={!beaker}
-                tooltip={
-                  beaker
-                    ? 'Look up recipes and reagents!'
-                    : 'Please insert a beaker!'
-                }
+                tooltip={beaker ? 'Look up recipes and reagents!' : 'Please insert a beaker!'}
                 tooltipPosition="bottom-start"
                 onClick={() => act('reaction_lookup')}
               >
@@ -93,10 +82,7 @@ export const ChemDispenser = (props) => {
           <LabeledList>
             <LabeledList.Item label="Energy">
               <ProgressBar value={data.energy / data.maxEnergy}>
-                {data.displayedUnits +
-                  ' / ' +
-                  data.displayedMaxUnits +
-                  ' units'}
+                {data.displayedUnits + ' / ' + data.displayedMaxUnits + ' units'}
               </ProgressBar>
             </LabeledList.Item>
           </LabeledList>
@@ -107,38 +93,23 @@ export const ChemDispenser = (props) => {
             <>
               {!recording && (
                 <Box inline mx={1}>
-                  <Button
-                    color="transparent"
-                    onClick={() => act('clear_recipes')}
-                  >
+                  <Button color="transparent" onClick={() => act('clear_recipes')}>
                     Clear recipes
                   </Button>
                 </Box>
               )}
               {!recording && (
-                <Button
-                  icon="circle"
-                  disabled={!beaker}
-                  onClick={() => act('record_recipe')}
-                >
+                <Button icon="circle" disabled={!beaker} onClick={() => act('record_recipe')}>
                   Record
                 </Button>
               )}
               {recording && (
-                <Button
-                  icon="ban"
-                  color="transparent"
-                  onClick={() => act('cancel_recording')}
-                >
+                <Button icon="ban" color="transparent" onClick={() => act('cancel_recording')}>
                   Discard
                 </Button>
               )}
               {recording && (
-                <Button
-                  icon="save"
-                  color="green"
-                  onClick={() => act('save_recording')}
-                >
+                <Button icon="save" color="green" onClick={() => act('save_recording')}>
                   Save
                 </Button>
               )}
@@ -193,9 +164,7 @@ export const ChemDispenser = (props) => {
                 style={{
                   textShadow: '1px 1px 0 black',
                 }}
-                backgroundColor={
-                  recipeReagents.includes(chemical.id) ? 'green' : 'default'
-                }
+                backgroundColor={recipeReagents.includes(chemical.id) ? 'green' : 'default'}
                 onClick={() =>
                   act('dispense', {
                     reagent: chemical.id,

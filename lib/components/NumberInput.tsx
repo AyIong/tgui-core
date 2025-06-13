@@ -141,11 +141,7 @@ export class NumberInput extends Component<Props, State> {
           maxValue + step,
         );
         if (Math.abs(internalValue - state.currentValue) >= step) {
-          state.currentValue = clamp(
-            round(internalValue / step, 0) * step,
-            minValue,
-            maxValue,
-          );
+          state.currentValue = clamp(round(internalValue / step, 0) * step, minValue, maxValue);
           // Set the new origin
           state.origin = event.screenY;
         } else if (Math.abs(offset) > stepSize) {
@@ -199,11 +195,7 @@ export class NumberInput extends Component<Props, State> {
       return;
     }
 
-    const targetValue = clamp(
-      Number.parseFloat(event.target.value),
-      minValue,
-      maxValue,
-    );
+    const targetValue = clamp(Number.parseFloat(event.target.value), minValue, maxValue);
     if (Number.isNaN(targetValue)) {
       this.setState({
         editing: false,
@@ -230,11 +222,7 @@ export class NumberInput extends Component<Props, State> {
     const { previousValue } = this.state;
 
     if (event.key === KEY.Enter) {
-      const targetValue = clamp(
-        Number.parseFloat(event.currentTarget.value),
-        minValue,
-        maxValue,
-      );
+      const targetValue = clamp(Number.parseFloat(event.currentTarget.value), minValue, maxValue);
       if (Number.isNaN(targetValue)) {
         this.setState({
           editing: false,
@@ -297,11 +285,7 @@ export class NumberInput extends Component<Props, State> {
 
     return (
       <Box
-        className={classes([
-          'NumberInput',
-          fluid && 'NumberInput--fluid',
-          className,
-        ])}
+        className={classes(['NumberInput', fluid && 'NumberInput--fluid', className])}
         fontSize={fontSize}
         lineHeight={lineHeight}
         minHeight={height}
@@ -312,11 +296,7 @@ export class NumberInput extends Component<Props, State> {
           <div
             className="NumberInput__bar"
             style={{
-              height: `${clamp(
-                ((displayValue - minValue) / (maxValue - minValue)) * 100,
-                0,
-                100,
-              )}%`,
+              height: `${clamp(((displayValue - minValue) / (maxValue - minValue)) * 100, 0, 100)}%`,
             }}
           />
         </div>

@@ -75,8 +75,7 @@ $pi: 3.1416;
 
     ~ .RoundGauge__needle .RoundGauge__needleLine {
       transform-origin: bottom;
-      animation: RoundGauge__needleAlertAnim
-        var(--round-gauge-needle-alert-animation) infinite;
+      animation: RoundGauge__needleAlertAnim var(--round-gauge-needle-alert-animation) infinite;
     }
   }
 }

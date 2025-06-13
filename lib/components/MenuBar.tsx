@@ -150,11 +150,7 @@ function MenuItem(props: MenuItemProps) {
   const { value, displayText, onClick } = props;
   return (
     <Box
-      className={classes([
-        'MenuBar__font',
-        'MenuBar__MenuItem',
-        'MenuBar__hover',
-      ])}
+      className={classes(['MenuBar__font', 'MenuBar__MenuItem', 'MenuBar__hover'])}
       onClick={() => onClick?.(value)}
     >
       {displayText}

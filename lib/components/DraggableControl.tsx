@@ -1,12 +1,6 @@
 import { isEscape, KEY } from '@common/keys';
 import { clamp } from '@common/math';
-import {
-  type MouseEventHandler,
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { type MouseEventHandler, type ReactNode, useEffect, useRef, useState } from 'react';
 import { AnimatedNumber } from './AnimatedNumber';
 import type { BoxProps } from './Box';
 

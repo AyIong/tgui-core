@@ -17,12 +17,7 @@ type Point = number[];
 type Range = [number, number];
 type ViewBox = [number, number];
 
-function normalizeData(
-  data: Point[],
-  scale: number[],
-  rangeX?: Range,
-  rangeY?: Range,
-) {
+function normalizeData(data: Point[], scale: number[], rangeX?: Range, rangeY?: Range) {
   if (data.length === 0) {
     return [];
   }

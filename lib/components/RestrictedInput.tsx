@@ -174,11 +174,7 @@ export function RestrictedInput(props: Props) {
 
   /** Updates the value on props change */
   useEffect(() => {
-    if (
-      inputRef.current &&
-      document.activeElement !== inputRef.current &&
-      value !== innerValue
-    ) {
+    if (inputRef.current && document.activeElement !== inputRef.current && value !== innerValue) {
       setInnerValue(value ?? minValue);
     }
   }, [value]);

@@ -14,9 +14,7 @@ type Story = StoryObj<StoryProps>;
 export const Default: Story = {
   render: () => (
     <div style={{ width: '250px', height: '250px' }}>
-      <TrackOutsideClicks
-        onOutsideClick={() => console.log('Clicked outside!')}
-      >
+      <TrackOutsideClicks onOutsideClick={() => console.log('Clicked outside!')}>
         <div
           style={{
             backgroundColor: 'blue',

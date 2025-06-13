@@ -111,21 +111,10 @@ export function Knob(props: Props) {
       }}
     >
       {(control) => {
-        const {
-          displayElement,
-          displayValue,
-          dragging,
-          handleDragStart,
-          inputElement,
-        } = control;
-        const scaledFillValue = scale(
-          fillValue ?? displayValue,
-          minValue,
-          maxValue,
-        );
+        const { displayElement, displayValue, dragging, handleDragStart, inputElement } = control;
+        const scaledFillValue = scale(fillValue ?? displayValue, minValue, maxValue);
         const scaledDisplayValue = scale(displayValue, minValue, maxValue);
-        const effectiveColor =
-          color || keyOfMatchingRange(fillValue ?? value, ranges) || 'default';
+        const effectiveColor = color || keyOfMatchingRange(fillValue ?? value, ranges) || 'default';
         const rotation = Math.min((scaledDisplayValue - 0.5) * 270, 225);
 
         return (
@@ -163,17 +152,11 @@ export function Knob(props: Props) {
                   <div className="Knob__cursor" />
                 </div>
               </div>
-              <svg
-                className="Knob__ring Knob__ringTrackPivot"
-                viewBox="0 0 100 100"
-              >
+              <svg className="Knob__ring Knob__ringTrackPivot" viewBox="0 0 100 100">
                 <circle className="Knob__ringTrack" cx="50" cy="50" r="50" />
                 <title>track</title>
               </svg>
-              <svg
-                className="Knob__ring Knob__ringFillPivot"
-                viewBox="0 0 100 100"
-              >
+              <svg className="Knob__ring Knob__ringFillPivot" viewBox="0 0 100 100">
                 <title>fill</title>
                 <circle
                   className="Knob__ringFill"
@@ -182,9 +165,7 @@ export function Knob(props: Props) {
                   r="50"
                   style={{
                     strokeDashoffset: Math.max(
-                      ((bipolar ? 2.75 : 2.0) - scaledFillValue * 1.5) *
-                        Math.PI *
-                        50,
+                      ((bipolar ? 2.75 : 2.0) - scaledFillValue * 1.5) * Math.PI * 50,
                       0,
                     ),
                   }}

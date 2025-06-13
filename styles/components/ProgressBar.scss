@@ -33,15 +33,11 @@
 }
 
 .ProgressBar--color--default {
-  --progress-bar-color: hsl(
-    from var(--progress-bar-fill) h s calc(l - var(--adjust-color))
-  );
+  --progress-bar-color: hsl(from var(--progress-bar-fill) h s calc(l - var(--adjust-color)));
 }
 
 @each $color-name, $color-value in colors.$color-map {
   .ProgressBar--color--#{$color-name} {
-    --progress-bar-color: hsl(
-      from #{$color-value} h s calc(l - var(--adjust-color))
-    );
+    --progress-bar-color: hsl(from #{$color-value} h s calc(l - var(--adjust-color)));
   }
 }

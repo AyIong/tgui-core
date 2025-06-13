@@ -73,8 +73,7 @@ export function ProgressBar(props: Props) {
   const scaledValue = scale(value, minValue, maxValue);
   const hasContent = children !== undefined;
 
-  const effectiveColor =
-    color || keyOfMatchingRange(value, ranges) || 'default';
+  const effectiveColor = color || keyOfMatchingRange(value, ranges) || 'default';
 
   // We permit colors to be in hex format, rgb()/rgba() format,
   // a name for a color-<name> class, or a base CSS class.
@@ -84,10 +83,7 @@ export function ProgressBar(props: Props) {
   const fillStyles: CSSProperties = {
     width: `${clamp01(scaledValue) * 100}%`,
   };
-  if (
-    CSS_COLORS.includes(effectiveColor as any) ||
-    effectiveColor === 'default'
-  ) {
+  if (CSS_COLORS.includes(effectiveColor as any) || effectiveColor === 'default') {
     // If the color is a color-<name> class, just use that.
     outerClasses.push(`ProgressBar--color--${effectiveColor}`);
   } else {
@@ -98,10 +94,7 @@ export function ProgressBar(props: Props) {
 
   return (
     <div className={classes(outerClasses)} {...outerProps}>
-      <div
-        className="ProgressBar__fill ProgressBar__fill--animated"
-        style={fillStyles}
-      />
+      <div className="ProgressBar__fill ProgressBar__fill--animated" style={fillStyles} />
       <div className="ProgressBar__content">
         {hasContent ? children : !empty && `${toFixed(scaledValue * 100)}%`}
       </div>

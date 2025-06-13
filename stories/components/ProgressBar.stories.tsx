@@ -22,40 +22,19 @@ function ProgressBarPreview(props: PreviewProps) {
     <Stack.Item grow key={color}>
       <Stack fill g={0.33}>
         <Stack.Item>
-          <Button
-            color={color}
-            icon="angles-left"
-            onClick={() => setValue(0)}
-          />
+          <Button color={color} icon="angles-left" onClick={() => setValue(0)} />
         </Stack.Item>
         <Stack.Item>
-          <Button
-            color={color}
-            icon="angle-left"
-            onClick={() => setValue(value - 10)}
-          />
+          <Button color={color} icon="angle-left" onClick={() => setValue(value - 10)} />
         </Stack.Item>
         <Stack.Item grow>
-          <ProgressBar
-            color={color}
-            empty={empty}
-            maxValue={100}
-            value={value}
-          />
+          <ProgressBar color={color} empty={empty} maxValue={100} value={value} />
         </Stack.Item>
         <Stack.Item>
-          <Button
-            color={color}
-            icon="angle-right"
-            onClick={() => setValue(value + 10)}
-          />
+          <Button color={color} icon="angle-right" onClick={() => setValue(value + 10)} />
         </Stack.Item>
         <Stack.Item>
-          <Button
-            color={color}
-            icon="angles-right"
-            onClick={() => setValue(100)}
-          />
+          <Button color={color} icon="angles-right" onClick={() => setValue(100)} />
         </Stack.Item>
       </Stack>
     </Stack.Item>
@@ -86,11 +65,9 @@ export const Colors = {
   render: () => {
     return (
       <Stack vertical>
-        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-          (color) => (
-            <ProgressBarPreview color={color} key={color} />
-          ),
-        )}
+        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+          <ProgressBarPreview color={color} key={color} />
+        ))}
       </Stack>
     );
   },

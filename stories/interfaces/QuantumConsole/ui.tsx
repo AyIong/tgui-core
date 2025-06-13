@@ -131,9 +131,7 @@ function AccessView(props) {
 
   let selected: string | undefined;
   if (generated_domain) {
-    selected = randomized
-      ? '???'
-      : sorted.find(({ id }) => id === generated_domain)?.name;
+    selected = randomized ? '???' : sorted.find(({ id }) => id === generated_domain)?.name;
   } else {
     selected = 'Nothing loaded';
   }
@@ -161,9 +159,7 @@ function AccessView(props) {
                   Weighted towards your current points. Minimum: 1 point."
               >
                 <Button
-                  disabled={
-                    !ready || occupants > 0 || points < 1 || !!generated_domain
-                  }
+                  disabled={!ready || occupants > 0 || points < 1 || !!generated_domain}
                   icon="random"
                   onClick={() => act('random_domain')}
                   mr={1}
@@ -353,11 +349,7 @@ const AvatarDisplay = (props) => {
           {!!generated_domain && (
             <Stack.Item>
               <Tooltip content="Available bandwidth for new connections.">
-                <DisplayDetails
-                  color="green"
-                  icon="broadcast-tower"
-                  amount={retries_left}
-                />
+                <DisplayDetails color="green" icon="broadcast-tower" amount={retries_left} />
               </Tooltip>
             </Stack.Item>
           )}
@@ -375,8 +367,7 @@ const AvatarDisplay = (props) => {
         {avatars.map(({ health, name, pilot, brute, burn, tox, oxy }) => (
           <Table.Row key={name}>
             <Table.Cell color="label">
-              {pilot} as{' '}
-              <span style={{ color: 'white' }}>&quot;{name}&quot;</span>
+              {pilot} as <span style={{ color: 'white' }}>&quot;{name}&quot;</span>
             </Table.Cell>
             <Table.Cell collapsing>
               <Stack>
@@ -392,10 +383,7 @@ const AvatarDisplay = (props) => {
                   <Icon color={burn > 50 ? 'average' : 'gray'} name="fire" />
                 </Stack.Item>
                 <Stack.Item>
-                  <Icon
-                    color={tox > 50 ? 'green' : 'gray'}
-                    name="skull-crossbones"
-                  />
+                  <Icon color={tox > 50 ? 'green' : 'gray'} name="skull-crossbones" />
                 </Stack.Item>
                 <Stack.Item>
                   <Icon color={oxy > 50 ? 'blue' : 'gray'} name="lungs" />

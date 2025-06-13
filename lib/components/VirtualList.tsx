@@ -1,10 +1,4 @@
-import {
-  type PropsWithChildren,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { type PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
 
 /**
  * ## VirtualList
@@ -24,25 +18,18 @@ export function VirtualList(props: PropsWithChildren) {
   const adjustExtents = useCallback(() => {
     const { current } = containerRef;
 
-    if (
-      !children ||
-      !Array.isArray(children) ||
-      !current ||
-      visibleElements >= children.length
-    ) {
+    if (!children || !Array.isArray(children) || !current || visibleElements >= children.length) {
       return;
     }
 
-    const unusedArea =
-      document.body.offsetHeight - current.getBoundingClientRect().bottom;
+    const unusedArea = document.body.offsetHeight - current.getBoundingClientRect().bottom;
 
     const averageItemHeight = Math.ceil(current.offsetHeight / visibleElements);
 
     if (unusedArea > 0) {
       const newVisibleElements = Math.min(
         children.length,
-        visibleElements +
-          Math.max(1, Math.ceil(unusedArea / averageItemHeight)),
+        visibleElements + Math.max(1, Math.ceil(unusedArea / averageItemHeight)),
       );
 
       setVisibleElements(newVisibleElements);
@@ -64,10 +51,7 @@ export function VirtualList(props: PropsWithChildren) {
       <div className="VirtualList__Container" ref={containerRef}>
         {Array.isArray(children) ? children.slice(0, visibleElements) : null}
       </div>
-      <div
-        className="VirtualList__Padding"
-        style={{ paddingBottom: `${padding}px` }}
-      />
+      <div className="VirtualList__Padding" style={{ paddingBottom: `${padding}px` }} />
     </div>
   );
 }

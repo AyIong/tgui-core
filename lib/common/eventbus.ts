@@ -38,9 +38,7 @@
  * bus.dispatch(message);
  * ```
  */
-export class EventBus<
-  TListeners extends Readonly<Record<string, (payload: unknown) => void>>,
-> {
+export class EventBus<TListeners extends Readonly<Record<string, (payload: unknown) => void>>> {
   private listeners: Partial<{
     [TType in keyof TListeners]: TListeners[TType];
   }> = {};

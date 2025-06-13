@@ -106,26 +106,15 @@ export function Slider(props: Props) {
       }}
     >
       {(control) => {
-        const {
-          displayElement,
-          displayValue,
-          dragging,
-          editing,
-          handleDragStart,
-          inputElement,
-        } = control;
+        const { displayElement, displayValue, dragging, editing, handleDragStart, inputElement } =
+          control;
 
         const hasFillValue = fillValue !== undefined && fillValue !== null;
 
-        const scaledFillValue = clamp01(
-          scale(fillValue ?? displayValue, minValue, maxValue),
-        );
-        const scaledDisplayValue = clamp01(
-          scale(displayValue, minValue, maxValue),
-        );
+        const scaledFillValue = clamp01(scale(fillValue ?? displayValue, minValue, maxValue));
+        const scaledDisplayValue = clamp01(scale(displayValue, minValue, maxValue));
 
-        const effectiveColor =
-          color || keyOfMatchingRange(fillValue ?? value, ranges) || 'default';
+        const effectiveColor = color || keyOfMatchingRange(fillValue ?? value, ranges) || 'default';
 
         return (
           <div
@@ -151,10 +140,7 @@ export function Slider(props: Props) {
               }}
             />
             <div
-              className={classes([
-                'ProgressBar__fill',
-                !dragging && 'ProgressBar__fill--animated',
-              ])}
+              className={classes(['ProgressBar__fill', !dragging && 'ProgressBar__fill--animated'])}
               style={{
                 width: `${Math.min(scaledFillValue, scaledDisplayValue) * 100}%`,
               }}
@@ -166,14 +152,10 @@ export function Slider(props: Props) {
               }}
             >
               <div className="Slider__cursor">
-                {dragging && (
-                  <div className="Slider__popupValue">{displayElement}</div>
-                )}
+                {dragging && <div className="Slider__popupValue">{displayElement}</div>}
               </div>
             </div>
-            <div className="ProgressBar__content">
-              {hasContent ? children : displayElement}
-            </div>
+            <div className="ProgressBar__content">{hasContent ? children : displayElement}</div>
             {inputElement}
           </div>
         );

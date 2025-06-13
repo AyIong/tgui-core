@@ -106,16 +106,14 @@ export function Dropdown(props: Props) {
   const [open, setOpen] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null);
 
-  const selectedIndex =
-    options.findIndex((option) => getOptionValue(option) === selected) || 0;
+  const selectedIndex = options.findIndex((option) => getOptionValue(option) === selected) || 0;
 
   function scrollToElement(position: number) {
     let scrollPos = position;
     if (position < selectedIndex) {
       scrollPos = position < 2 ? 0 : position - 2;
     } else {
-      scrollPos =
-        position > options.length - 3 ? options.length - 1 : position - 2;
+      scrollPos = position > options.length - 3 ? options.length - 1 : position - 2;
     }
 
     const dropdownMenu = innerRef.current;
@@ -168,10 +166,7 @@ export function Dropdown(props: Props) {
                 const value = getOptionValue(option);
                 return (
                   <div
-                    className={classes([
-                      'Dropdown__menu--entry',
-                      selected === value && 'selected',
-                    ])}
+                    className={classes(['Dropdown__menu--entry', selected === value && 'selected'])}
                     key={value}
                     onClick={() => {
                       onSelected?.(value);
@@ -228,19 +223,12 @@ export function Dropdown(props: Props) {
           style={{ width: unit(width) }}
         >
           {icon && (
-            <Icon
-              className="Dropdown__icon"
-              name={icon}
-              rotation={iconRotation}
-              spin={iconSpin}
-            />
+            <Icon className="Dropdown__icon" name={icon} rotation={iconRotation} spin={iconSpin} />
           )}
           {!iconOnly && (
             <>
               <span className="Dropdown__selected-text">
-                {displayText ||
-                  (selected && getOptionValue(selected)) ||
-                  placeholder}
+                {displayText || (selected && getOptionValue(selected)) || placeholder}
               </span>
 
               {!noChevron && (

@@ -33,8 +33,7 @@
       ) {
       &:hover {
         background-color: hsl(
-          from var(--imagebutton-color) h s
-            calc(l - var(--adjust-color) + var(--adjust-hover)) /
+          from var(--imagebutton-color) h s calc(l - var(--adjust-color) + var(--adjust-hover)) /
             var(--imagebutton-transparecy)
         );
       }
@@ -48,9 +47,7 @@
 
   /* Make non-fluid content opaque */
   &:not(.ImageButton--fluid) .ImageButton__content {
-    background-color: hsl(
-      from var(--imagebutton-color) h s calc(l - var(--adjust-hover))
-    );
+    background-color: hsl(from var(--imagebutton-color) h s calc(l - var(--adjust-hover)));
     border-top: var(--border-thickness-tiny) solid var(--imagebutton-color);
   }
 
@@ -271,9 +268,7 @@
 }
 
 .ImageButton--selected {
-  --imagebutton-color: hsl(
-    from var(--button-background-selected) h s calc(l * 1.15)
-  );
+  --imagebutton-color: hsl(from var(--button-background-selected) h s calc(l * 1.15));
   --color-text-fixed-white: var(--color-white);
 }
 

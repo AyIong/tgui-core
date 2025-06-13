@@ -95,10 +95,7 @@ function getBoundingBox(element: HTMLDivElement): BoundingBox {
 
   return {
     pos: [rect.left * pixelRatio, rect.top * pixelRatio],
-    size: [
-      (rect.right - rect.left) * pixelRatio,
-      (rect.bottom - rect.top) * pixelRatio,
-    ],
+    size: [(rect.right - rect.left) * pixelRatio, (rect.bottom - rect.top) * pixelRatio],
   };
 }
 

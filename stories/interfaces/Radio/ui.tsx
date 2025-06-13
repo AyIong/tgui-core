@@ -1,15 +1,7 @@
 import { RADIO_CHANNELS } from '@common/constants';
 import { toFixed } from '@common/math';
 import type { BooleanLike } from '@common/react';
-import {
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  Section,
-  Slider,
-  Stack,
-} from '@components';
+import { Box, Button, LabeledList, NumberInput, Section, Slider, Stack } from '@components';
 import { Window } from '../../layouts';
 import { useBackend } from './backend';
 import { map } from './collections';
@@ -44,9 +36,7 @@ export const Radio = (props) => {
     subspaceSwitchable,
     radio_noises,
   } = data;
-  const tunedChannel = RADIO_CHANNELS.find(
-    (channel) => channel.freq === frequency,
-  );
+  const tunedChannel = RADIO_CHANNELS.find((channel) => channel.freq === frequency);
   const channels = map(data.channels, (value, key) => ({
     name: key,
     status: !!value,

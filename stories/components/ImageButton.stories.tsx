@@ -3,9 +3,7 @@ import { Button, Icon, ImageButton } from '@components';
 import { type ComponentProps, useState } from 'react';
 import type { Meta, StoryObj } from 'storybook-react-rsbuild';
 
-const soulFish = (
-  <span style={{ color: 'rgba(255, 255, 255, 0.5' }}>SoulFish</span>
-);
+const soulFish = <span style={{ color: 'rgba(255, 255, 255, 0.5' }}>SoulFish</span>;
 const soulFishImage =
   'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAIVBMVEXAwMAAAP8AAMwAZv9mMwCZZjMAAAD/mTP/zGb/ADMHBwd3bPqIAAAAAXRSTlMAQObYZgAAAI5JREFUKJFjYBhkQAiNz2iEJiAMEmBxQBIAaXENQOgwBgqwhEJVsKWlJRkbCsAF2NLKy9OSjQ0FVWEC5Rlt5cnGxsKmIVADKjo62oWBAoYwMyo6Z6AKlHd0lAMFlK1cYXrKywuNgQIL4AIMDEpAFauA9iIcthjkMgYXuACTlLKhAornFFctQvUtkyLDgAIAaJcdwdTNoTsAAAAASUVORK5CYII=';
 
@@ -74,10 +72,7 @@ export const FilledFluid: Story = {
     const [disabled, setDisabled] = useState(false);
     const [selected, setSelected] = useState(false);
     const buttons = (
-      <Button
-        color={disabled ? 'bad' : 'transparent'}
-        onClick={() => setDisabled(!disabled)}
-      >
+      <Button color={disabled ? 'bad' : 'transparent'} onClick={() => setDisabled(!disabled)}>
         <Icon mb={1} name={'power-off'} size={1.66} />
         <br />
         {disabled ? 'Enable' : 'Disable'}
@@ -94,8 +89,8 @@ export const FilledFluid: Story = {
           onRightClick={() => setDisabled(!disabled)}
           selected={selected}
         >
-          Fluid with buttonsAlt prop. buttonsAlt container has a fixed width
-          that depends on the size of the image
+          Fluid with buttonsAlt prop. buttonsAlt container has a fixed width that depends on the
+          size of the image
         </ImageButton>
         <ImageButton
           {...args}
@@ -105,8 +100,7 @@ export const FilledFluid: Story = {
           onRightClick={() => setDisabled(!disabled)}
           selected={selected}
         >
-          Fluid with buttons prop. buttons container can have custom width. Here
-          is auto width
+          Fluid with buttons prop. buttons container can have custom width. Here is auto width
         </ImageButton>
       </>
     );
@@ -187,27 +181,25 @@ export const Colors: Story = {
 
     return (
       <>
-        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-          (color) => (
-            <ImageButton
-              {...args}
-              base64={soulFishImage}
-              buttons={compact && controls}
-              buttonsAlt={compact ? soulFish : controls}
-              color={color}
-              disabled={disabled}
-              fluid={!compact}
-              imageSize={compact ? 96 : 48}
-              key={color}
-              onClick={() => setSelected(!selected)}
-              onRightClick={() => setDisabled(!disabled)}
-              selected={selected}
-              title={!compact ? color : ''}
-            >
-              {compact && color}
-            </ImageButton>
-          ),
-        )}
+        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+          <ImageButton
+            {...args}
+            base64={soulFishImage}
+            buttons={compact && controls}
+            buttonsAlt={compact ? soulFish : controls}
+            color={color}
+            disabled={disabled}
+            fluid={!compact}
+            imageSize={compact ? 96 : 48}
+            key={color}
+            onClick={() => setSelected(!selected)}
+            onRightClick={() => setDisabled(!disabled)}
+            selected={selected}
+            title={!compact ? color : ''}
+          >
+            {compact && color}
+          </ImageButton>
+        ))}
       </>
     );
   },

@@ -37,12 +37,7 @@ function WindowContent(props: ContentProps) {
   const { children, scrollable } = props;
 
   return (
-    <div
-      className={classes([
-        'Window-Content',
-        scrollable && 'Window-Content__Scrollable',
-      ])}
-    >
+    <div className={classes(['Window-Content', scrollable && 'Window-Content__Scrollable'])}>
       {children}
     </div>
   );

@@ -15,9 +15,7 @@ export const Default: Story = {
   render: () => {
     const [value, setValue] = useState(1);
 
-    return (
-      <RestrictedInput onChange={(value) => setValue(value)} value={value} />
-    );
+    return <RestrictedInput onChange={(value) => setValue(value)} value={value} />;
   },
 };
 
@@ -25,13 +23,7 @@ export const Fluid: Story = {
   render: () => {
     const [value, setValue] = useState(1);
 
-    return (
-      <RestrictedInput
-        fluid
-        onChange={(value) => setValue(value)}
-        value={value}
-      />
-    );
+    return <RestrictedInput fluid onChange={(value) => setValue(value)} value={value} />;
   },
 };
 
@@ -68,13 +60,7 @@ export const AutoSelect: Story = {
   render: () => {
     const [value, setValue] = useState(1);
 
-    return (
-      <RestrictedInput
-        autoSelect
-        onChange={(value) => setValue(value)}
-        value={value}
-      />
-    );
+    return <RestrictedInput autoSelect onChange={(value) => setValue(value)} value={value} />;
   },
 };
 

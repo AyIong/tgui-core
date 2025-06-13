@@ -104,22 +104,12 @@ export function PowerMonitorContent(props) {
             <Section>
               <LabeledList>
                 <LabeledList.Item label="Supply">
-                  <ProgressBar
-                    value={supply}
-                    minValue={0}
-                    maxValue={maxValue}
-                    color="teal"
-                  >
+                  <ProgressBar value={supply} minValue={0} maxValue={maxValue} color="teal">
                     {`${toFixed(supply / 1000)} kW`}
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item label="Draw">
-                  <ProgressBar
-                    value={demand}
-                    minValue={0}
-                    maxValue={maxValue}
-                    color="pink"
-                  >
+                  <ProgressBar value={demand} minValue={0} maxValue={maxValue} color="pink">
                     {`${toFixed(demand / 1000)} kW`}
                   </ProgressBar>
                 </LabeledList.Item>
@@ -194,9 +184,7 @@ function StationAreas(props) {
           </Button.Checkbox>
           <Button.Checkbox
             checked={sortByField === 'charge'}
-            onClick={() =>
-              setSortByField(sortByField !== 'charge' ? 'charge' : '')
-            }
+            onClick={() => setSortByField(sortByField !== 'charge' ? 'charge' : '')}
           >
             Charge
           </Button.Checkbox>
@@ -234,9 +222,7 @@ function StationAreas(props) {
                 <td className="Table__cell text-right text-nowrap">
                   <AreaCharge charging={area.charging} charge={area.charge} />
                 </td>
-                <td className="Table__cell text-right text-nowrap">
-                  {area.load}
-                </td>
+                <td className="Table__cell text-right text-nowrap">{area.load}</td>
                 <td className="Table__cell text-center text-nowrap">
                   <AreaStatusColorBox status={area.eqp} />
                 </td>
@@ -308,10 +294,7 @@ function AreaStatusColorBox(props: AreaStatusColorBoxProps) {
 
   return (
     <Tooltip content={tooltipText}>
-      <ColorBox
-        color={power ? 'good' : 'bad'}
-        content={mode ? undefined : 'M'}
-      />
+      <ColorBox color={power ? 'good' : 'bad'} content={mode ? undefined : 'M'} />
     </Tooltip>
   );
 }

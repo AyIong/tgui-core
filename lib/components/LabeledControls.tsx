@@ -24,13 +24,7 @@ export function LabeledControls(props: FlexProps) {
   const { children, wrap, ...rest } = props;
 
   return (
-    <Flex
-      align="stretch"
-      justify="space-between"
-      mx={-0.5}
-      wrap={wrap}
-      {...rest}
-    >
+    <Flex align="stretch" justify="space-between" mx={-0.5} wrap={wrap} {...rest}>
       {children}
     </Flex>
   );

@@ -13,16 +13,12 @@
   user-select: none;
 
   &:hover {
-    background-color: hsl(
-      from var(--button-background) h s calc(l + var(--adjust-hover))
-    );
+    background-color: hsl(from var(--button-background) h s calc(l + var(--adjust-hover)));
     color: var(--button-color);
   }
 
   &:active {
-    background-color: hsl(
-      from var(--button-background) h s calc(l - var(--adjust-active))
-    );
+    background-color: hsl(from var(--button-background) h s calc(l - var(--adjust-active)));
     color: var(--button-color);
     transition: none;
   }
@@ -158,10 +154,7 @@
 
 .Button--disabled {
   cursor: var(--cursor-disabled) !important;
-  background-color: var(
-    --button-background-disabled,
-    var(--button-background)
-  ) !important;
+  background-color: var(--button-background-disabled, var(--button-background)) !important;
   opacity: var(--button-disabled-opacity);
 }
 

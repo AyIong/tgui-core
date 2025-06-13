@@ -5,14 +5,14 @@
   "[yaml][markdown][html][scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit"
   },
   "editor.formatOnSave": true,
-  "editor.rulers": [80],
+  "editor.rulers": [100],
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

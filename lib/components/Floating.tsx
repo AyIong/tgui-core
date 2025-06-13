@@ -163,8 +163,7 @@ export function Floating(props: Props) {
     outsidePress: (event) =>
       !allowedOutsideClasses
         ? true
-        : event.target instanceof Element &&
-          !event.target.closest(allowedOutsideClasses),
+        : event.target instanceof Element && !event.target.closest(allowedOutsideClasses),
   });
 
   const click = useClick(context, { enabled: !disabled });
@@ -209,11 +208,7 @@ export function Floating(props: Props) {
 
   const floatingContent = (
     <div
-      className={classes([
-        'Floating',
-        !animationDuration && 'Floating--animated',
-        contentClasses,
-      ])}
+      className={classes(['Floating', !animationDuration && 'Floating--animated', contentClasses])}
       data-position={context.placement}
       data-transition={status}
       style={{ ...floatingStyles, ...contentStyles }}

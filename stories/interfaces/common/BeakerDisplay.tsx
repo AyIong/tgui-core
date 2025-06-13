@@ -47,21 +47,18 @@ export const BeakerDisplay = (props: BeakerProps) => {
         {title_label ||
           (!!beaker && (
             <>
-              <AnimatedNumber initial={0} value={beaker.currentVolume} />/
-              {beaker.maxVolume} units
+              <AnimatedNumber initial={0} value={beaker.currentVolume} />/{beaker.maxVolume} units
             </>
           )) ||
           'No beaker'}
       </LabeledList.Item>
       <LabeledList.Item label="Contents">
         <Box color="label">
-          {(!title_label && !beaker && 'N/A') ||
-            (beakerContents.length === 0 && 'Nothing')}
+          {(!title_label && !beaker && 'N/A') || (beakerContents.length === 0 && 'Nothing')}
         </Box>
         {beakerContents.map((chemical) => (
           <Box key={chemical.name} color="label">
-            <AnimatedNumber initial={0} value={chemical.volume} /> units of{' '}
-            {chemical.name}
+            <AnimatedNumber initial={0} value={chemical.volume} /> units of {chemical.name}
           </Box>
         ))}
         {beakerContents.length > 0 && !!showpH && (
@@ -96,13 +93,10 @@ export const BeakerSectionDisplay = (props: BeakerProps) => {
         )
       }
     >
-      <Box color="label">
-        {(!beaker && 'N/A') || (beakerContents.length === 0 && 'Nothing')}
-      </Box>
+      <Box color="label">{(!beaker && 'N/A') || (beakerContents.length === 0 && 'Nothing')}</Box>
       {beakerContents.map((chemical) => (
         <Box key={chemical.name} color="label">
-          <AnimatedNumber initial={0} value={chemical.volume} /> units of{' '}
-          {chemical.name}
+          <AnimatedNumber initial={0} value={chemical.volume} /> units of {chemical.name}
         </Box>
       ))}
       {beakerContents.length > 0 && !!showpH && (

@@ -45,10 +45,7 @@ export function throttle<F extends (...args: any[]) => any>(
       fn(...args);
       previouslyRun = now;
     } else {
-      queuedToRun = setTimeout(
-        () => invokeFn(...args),
-        time - (now - (previouslyRun ?? 0)),
-      );
+      queuedToRun = setTimeout(() => invokeFn(...args), time - (now - (previouslyRun ?? 0)));
     }
   };
 }

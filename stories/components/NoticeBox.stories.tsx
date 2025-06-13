@@ -22,13 +22,11 @@ export const Colors: Story = {
   render: () => {
     return (
       <>
-        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-          (color) => (
-            <NoticeBox color={color} key={color}>
-              {color || 'default'}
-            </NoticeBox>
-          ),
-        )}
+        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+          <NoticeBox color={color} key={color}>
+            {color || 'default'}
+          </NoticeBox>
+        ))}
       </>
     );
   },

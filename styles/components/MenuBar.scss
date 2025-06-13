@@ -33,8 +33,7 @@
   transition: background-color var(--menu-bar-transition) ease-out;
   background-color: var(--menu-bar-background);
   white-space: nowrap;
-  padding: var(--space-sm) var(--space-xl) var(--space-sm)
-    calc(var(--space-xxl) + 1rem);
+  padding: var(--space-sm) var(--space-xl) var(--space-sm) calc(var(--space-xxl) + 1rem);
 }
 
 .MenuBar__MenuItemToggle {

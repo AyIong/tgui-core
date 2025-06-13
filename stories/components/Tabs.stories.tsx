@@ -22,35 +22,27 @@ export const Default: Story = {
       <Stack fill height={40} vertical={!vertical} wrap>
         <Stack.Item>
           <Tabs fill vertical={vertical}>
-            {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-              (color) => (
-                <Tabs.Tab
-                  color={color}
-                  key={color}
-                  onClick={() => setTab(color)}
-                  selected={selectAll || tab === color}
-                  textAlign="center"
-                >
-                  {color || 'Default'}
-                </Tabs.Tab>
-              ),
-            )}
+            {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+              <Tabs.Tab
+                color={color}
+                key={color}
+                onClick={() => setTab(color)}
+                selected={selectAll || tab === color}
+                textAlign="center"
+              >
+                {color || 'Default'}
+              </Tabs.Tab>
+            ))}
           </Tabs>
         </Stack.Item>
         <Stack.Item grow>
           <Section
             buttons={
               <>
-                <Button.Checkbox
-                  checked={selectAll}
-                  onClick={() => setSelectAll(!selectAll)}
-                >
+                <Button.Checkbox checked={selectAll} onClick={() => setSelectAll(!selectAll)}>
                   Select all
                 </Button.Checkbox>
-                <Button.Checkbox
-                  checked={vertical}
-                  onClick={() => setVertical(!vertical)}
-                >
+                <Button.Checkbox checked={vertical} onClick={() => setVertical(!vertical)}>
                   Vertical
                 </Button.Checkbox>
               </>

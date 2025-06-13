@@ -12,15 +12,7 @@ export default {
 
 type Story = StoryObj<StoryProps>;
 
-const fontAwesomeEmoticons = [
-  'smile',
-  'frown',
-  'meh',
-  'laugh',
-  'sad-cry',
-  'angry',
-  'shocked',
-];
+const fontAwesomeEmoticons = ['smile', 'frown', 'meh', 'laugh', 'sad-cry', 'angry', 'shocked'];
 
 export const Default: Story = {
   render: () => (

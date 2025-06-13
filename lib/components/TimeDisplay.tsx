@@ -20,11 +20,7 @@ type TimeDisplayProps = {
  * - [View documentation on tgui core](https://tgstation.github.io/tgui-core/?path=/docs/components-timedisplay--docs)
  */
 export function TimeDisplay(props: TimeDisplayProps) {
-  const {
-    value: initialValue = 0,
-    auto = undefined,
-    format = undefined,
-  } = props;
+  const { value: initialValue = 0, auto = undefined, format = undefined } = props;
   const [currentValue, setCurrentValue] = useState<number>(() =>
     isSafeNumber(initialValue) ? initialValue : 0,
   );

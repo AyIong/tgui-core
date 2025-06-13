@@ -110,27 +110,19 @@ export function TextArea(props: Props) {
     if (!dontUseTabForIndent && event.key === KEY.Tab) {
       event.preventDefault();
       const { value, selectionStart, selectionEnd } = event.currentTarget;
-      setInnerValue(
-        `${value.substring(0, selectionStart)}\t${value.substring(selectionEnd)}`,
-      );
+      setInnerValue(`${value.substring(0, selectionStart)}\t${value.substring(selectionEnd)}`);
       event.currentTarget.selectionEnd = selectionStart + 1;
       onChange?.(event.currentTarget.value);
       return;
     }
 
     // User markup
-    if (
-      userMarkup &&
-      (event.ctrlKey || event.metaKey) &&
-      userMarkup[event.key]
-    ) {
+    if (userMarkup && (event.ctrlKey || event.metaKey) && userMarkup[event.key]) {
       event.preventDefault();
 
       const { selectionStart, selectionEnd, value } = event.currentTarget;
       const markupString = userMarkup[event.key];
-      setInnerValue(
-        getMarkupString(value, markupString, selectionStart, selectionEnd),
-      );
+      setInnerValue(getMarkupString(value, markupString, selectionStart, selectionEnd));
       event.currentTarget.selectionEnd = selectionEnd + markupString.length * 2;
       onChange?.(event.currentTarget.value);
       return;

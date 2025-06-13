@@ -1,8 +1,5 @@
 type MapFunction = {
-  <T, U>(
-    collection: T[],
-    iterateeFn: (value: T, index: number, collection: T[]) => U,
-  ): U[];
+  <T, U>(collection: T[], iterateeFn: (value: T, index: number, collection: T[]) => U): U[];
 
   <T, U, K extends string | number>(
     collection: Record<K, T>,

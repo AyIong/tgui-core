@@ -152,9 +152,7 @@ export function ImageButton(props: Props) {
           />
         ) : dmIcon && dmIconState ? (
           <DmIcon
-            fallback={
-              dmFallback || <Fallback icon="spinner" size={imageSize} spin />
-            }
+            fallback={dmFallback || <Fallback icon="spinner" size={imageSize} spin />}
             height={`${imageSize}px`}
             icon={dmIcon}
             icon_state={dmIconState}
@@ -187,9 +185,7 @@ export function ImageButton(props: Props) {
               {title}
             </span>
           )}
-          {children && (
-            <span className="ImageButton__content--text">{children}</span>
-          )}
+          {children && <span className="ImageButton__content--text">{children}</span>}
         </div>
       ) : (
         !!children && <span className="ImageButton__content">{children}</span>
@@ -224,10 +220,7 @@ export function ImageButton(props: Props) {
       {buttonContent}
       {buttons && (
         <div
-          className={classes([
-            'ImageButton__buttons',
-            !children && 'ImageButton__buttons--empty',
-          ])}
+          className={classes(['ImageButton__buttons', !children && 'ImageButton__buttons--empty'])}
           style={{
             width: 'auto',
           }}

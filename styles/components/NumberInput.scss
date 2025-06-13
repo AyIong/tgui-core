@@ -41,8 +41,7 @@
   left: 0;
   width: base.em(3px);
   box-sizing: border-box;
-  border-bottom: var(--border-thickness-tiny) solid
-    var(--number-input-border-color-active);
+  border-bottom: var(--border-thickness-tiny) solid var(--number-input-border-color-active);
   background-color: var(--number-input-border-color-active);
 }
 

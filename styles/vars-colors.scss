@@ -28,12 +28,8 @@
   --secondary-saturation: s;
   --secondary-lightness-adjustment: 7.5;
   --base-gradient-spread: 2;
-  --color-base-start: hsl(
-    from var(--color-base) h s calc(l + var(--base-gradient-spread))
-  );
-  --color-base-end: hsl(
-    from var(--color-base) h s calc(l - var(--base-gradient-spread))
-  );
+  --color-base-start: hsl(from var(--color-base) h s calc(l + var(--base-gradient-spread)));
+  --color-base-end: hsl(from var(--color-base) h s calc(l - var(--base-gradient-spread)));
 
   /* Scrollbar */
   --color-scrollbar-base: var(--color-section);
@@ -77,11 +73,7 @@
   --primary-hue: 210;
   --primary-saturation: 37.5%;
   --primary-lightness: 45%;
-  --color-primary: hsl(
-    var(--primary-hue),
-    var(--primary-saturation),
-    var(--primary-lightness)
-  );
+  --color-primary: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness));
   --color-good: hsl(95, 62.5%, 40%);
   --color-average: hsl(32.5, 90%, 50%);
   --color-bad: hsl(0, 72.5%, 50%);
@@ -107,8 +99,8 @@
   --border-primary-lightness: 75;
   --border-primary-alpha: 0.75;
   --color-border-primary: hsl(
-    from var(--color-primary) h var(--border-primary-saturation)
-      var(--border-primary-lightness) / var(--border-primary-alpha)
+    from var(--color-primary) h var(--border-primary-saturation) var(--border-primary-lightness) /
+      var(--border-primary-alpha)
   );
   --color-border-secondary: hsl(from var(--color-border-primary) h s l / 1);
 }

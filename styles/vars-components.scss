@@ -21,9 +21,7 @@
 
 :root {
   /* BlockQuote */
-  --blockquote-color: hsl(
-    from var(--color-label) h s calc(l + var(--adjust-color))
-  );
+  --blockquote-color: hsl(from var(--color-label) h s calc(l + var(--adjust-color)));
   --blockquote-border: var(--border-thickness-small) solid;
 
   /* Button */
@@ -45,9 +43,7 @@
 
   /* Dimmer */
   --dimmer-background-opacity: 0.75;
-  --dimmer-background: hsl(
-    from var(--color-base) h s 5 / var(--dimmer-background-opacity)
-  );
+  --dimmer-background: hsl(from var(--color-base) h s 5 / var(--dimmer-background-opacity));
 
   /* Divider */
   --divider-color: var(--color-border);
@@ -56,9 +52,7 @@
   /* Dropdown */
   --dropdown-transition: var(--transition-time-medium);
   --dropdown-menu-color: var(--color-text);
-  --dropdown-menu-background: hsl(
-    from var(--color-base) h s calc(l - 5.5) / 0.85
-  );
+  --dropdown-menu-background: hsl(from var(--color-base) h s calc(l - 5.5) / 0.85);
   --dropdown-menu-border: var(--border-thickness-tiny) solid var(--color-border);
   --dropdown-menu-border-radius: var(--border-radius-large);
   --dropdown-menu-blur: var(--blur-medium);
@@ -88,9 +82,7 @@
 
   /* Input */
   --input-background-lightness: 5;
-  --input-background: hsl(
-    from var(--color-base) h s var(--input-background-lightness)
-  );
+  --input-background: hsl(from var(--color-base) h s var(--input-background-lightness));
   --input-color: var(--color-text);
   --input-color-placeholder: var(--color-text-translucent);
   --input-border-color: var(--color-border-primary);
@@ -141,9 +133,7 @@
 
   /* Restricted Input */
   --restricted-input-border-color: var(--color-good);
-  --restricted-input-border-color-focus: hsl(
-    from var(--color-good) h s calc(l + 10)
-  );
+  --restricted-input-border-color-focus: hsl(from var(--color-good) h s calc(l + 10));
   --restricted-input-border-color-invalid: var(--color-bad);
 
   /* Round Gauge */
@@ -169,9 +159,7 @@
   /* Tooltip */
   --tooltip-color: var(--color-text);
   --tooltip-background-lightness: 5;
-  --tooltip-background: hsl(
-    from var(--color-base) h s var(--tooltip-background-lightness) / 0.85
-  );
+  --tooltip-background: hsl(from var(--color-base) h s var(--tooltip-background-lightness) / 0.85);
   --tooltip-border-radius: var(--border-radius-medium);
   --tooltip-blur: var(--blur-medium);
 }

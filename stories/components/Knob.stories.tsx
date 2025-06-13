@@ -67,11 +67,9 @@ export const Colors = {
   render: () => {
     return (
       <Stack fill g={1} justify="center" wrap>
-        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-          (color) => (
-            <KnobPreview color={color} key={color} />
-          ),
-        )}
+        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+          <KnobPreview color={color} key={color} />
+        ))}
       </Stack>
     );
   },

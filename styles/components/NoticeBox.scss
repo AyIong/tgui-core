@@ -7,9 +7,7 @@
   font-style: italic;
   padding: var(--space-sm) var(--space-m);
   margin-bottom: var(--space-m);
-  background-color: oklch(
-    from var(--noticebox-background) calc(l * 0.825) calc(c * 0.75) h
-  );
+  background-color: oklch(from var(--noticebox-background) calc(l * 0.825) calc(c * 0.75) h);
   background-image: repeating-linear-gradient(
     -45deg,
     transparent 0 base.em(10px),

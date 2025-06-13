@@ -67,11 +67,7 @@ type DialogButtonProps = {
 function DialogButton(props: DialogButtonProps) {
   const { onClick, children } = props;
   return (
-    <Button
-      className="Dialog__button"
-      onClick={onClick}
-      verticalAlignContent="middle"
-    >
+    <Button className="Dialog__button" onClick={onClick} verticalAlignContent="middle">
       {children}
     </Button>
   );

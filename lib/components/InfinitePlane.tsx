@@ -110,17 +110,14 @@ export function InfinitePlane(props: Props) {
     if (event.deltaY === 0) return;
 
     event.preventDefault();
-    handleZoom(
-      event.deltaY < 0 ? ZoomDirection.Increase : ZoomDirection.Decrease,
-    );
+    handleZoom(event.deltaY < 0 ? ZoomDirection.Increase : ZoomDirection.Decrease);
   }
 
   function handleZoom(direction: ZoomDirection) {
     if (direction === ZoomDirection.Increase && zoom >= ZOOM_MAX_VAL) return;
     if (direction === ZoomDirection.Decrease && zoom <= ZOOM_MIN_VAL) return;
 
-    const increment =
-      direction === ZoomDirection.Increase ? ZOOM_INCREMENT : -ZOOM_INCREMENT;
+    const increment = direction === ZoomDirection.Increase ? ZOOM_INCREMENT : -ZOOM_INCREMENT;
     const newZoom = Math.round((zoom + increment) * 10) / 10;
 
     setZoom(newZoom);
@@ -180,11 +177,7 @@ export function InfinitePlane(props: Props) {
       >
         {children}
       </div>
-      <ZoomControls
-        padding={zoomPadding}
-        onZoomClick={handleZoom}
-        zoom={zoom}
-      />
+      <ZoomControls padding={zoomPadding} onZoomClick={handleZoom} zoom={zoom} />
     </div>
   );
 }
@@ -209,11 +202,7 @@ function ZoomControls(props: ZoomProps) {
           />
         </Stack.Item>
         <Stack.Item grow>
-          <ProgressBar
-            maxValue={ZOOM_MAX_VAL}
-            minValue={ZOOM_MIN_VAL}
-            value={zoom}
-          >
+          <ProgressBar maxValue={ZOOM_MAX_VAL} minValue={ZOOM_MIN_VAL} value={zoom}>
             {zoom}x
           </ProgressBar>
         </Stack.Item>

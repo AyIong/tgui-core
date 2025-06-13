@@ -28,16 +28,7 @@ type Props = Partial<{
  * - [View documentation on tgui core](https://tgstation.github.io/tgui-core/?path=/docs/components-collapsible--docs)
  */
 export function Collapsible(props: Props) {
-  const {
-    children,
-    child_mt = 1,
-    childStyles,
-    color,
-    title,
-    buttons,
-    icon,
-    ...rest
-  } = props;
+  const { children, child_mt = 1, childStyles, color, title, buttons, icon, ...rest } = props;
   const [open, setOpen] = useState(props.open);
 
   return (
@@ -54,9 +45,7 @@ export function Collapsible(props: Props) {
             {title}
           </Button>
         </div>
-        {buttons && (
-          <div className="Table__cell Table__cell--collapsing">{buttons}</div>
-        )}
+        {buttons && <div className="Table__cell Table__cell--collapsing">{buttons}</div>}
       </div>
       {open && (
         <Box mt={child_mt} style={childStyles}>

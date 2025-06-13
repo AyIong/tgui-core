@@ -83,13 +83,11 @@ export const Colors: Story = {
   render: () => {
     return (
       <>
-        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-          (color) => (
-            <Button color={color} key={color}>
-              {color}
-            </Button>
-          ),
-        )}
+        {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+          <Button color={color} key={color}>
+            {color}
+          </Button>
+        ))}
       </>
     );
   },
@@ -107,15 +105,10 @@ export const Checkbox: CheckboxStory = {
 
     return (
       <>
-        ** Note that checkbox is transparent by default, so this is set to blue
-        via params **
+        ** Note that checkbox is transparent by default, so this is set to blue via params **
         <br />
         <br />
-        <Button.Checkbox
-          {...args}
-          checked={checked}
-          onClick={() => setChecked(!checked)}
-        />
+        <Button.Checkbox {...args} checked={checked} onClick={() => setChecked(!checked)} />
         <Button.Checkbox
           {...args}
           color="default"
