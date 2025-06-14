@@ -69,6 +69,8 @@
   --dropdown-entry-transition: var(--transition-time-fast);
 
   /* Floating */
+  --floating-arrow-fill: var(--tooltip-background);
+  --floating-arrow-stroke: transparent;
   --floating-transition-time: var(--transition-time-medium);
   --floating-transition-timing: ease;
 

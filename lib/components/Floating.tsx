@@ -1,6 +1,8 @@
 import { type BooleanLike, classes } from '@common/react';
 import {
+  arrow,
   autoUpdate,
+  FloatingArrow,
   FloatingPortal,
   flip,
   offset,
@@ -21,6 +23,7 @@ import {
   type ReactElement,
   type ReactNode,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
@@ -122,6 +125,7 @@ export function Floating(props: Props) {
     onOpenChange,
   } = props;
 
+  const arrowRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const { refs, floatingStyles, context } = useFloating({
     middleware: [
@@ -134,6 +138,9 @@ export function Floating(props: Props) {
             elements.floating.style.width = `${rects.reference.width}px`;
           },
         }),
+      arrow({
+        element: arrowRef,
+      }),
     ],
     onOpenChange(isOpen) {
       setIsOpen(isOpen);
@@ -220,6 +227,12 @@ export function Floating(props: Props) {
       {...floatingProps}
     >
       {content}
+      <FloatingArrow
+        ref={arrowRef}
+        context={context}
+        fill="var(--floating-arrow-fill)"
+        stroke="var(--floating-arrow-stroke)"
+      />
     </div>
   );
 
