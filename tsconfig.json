@@ -16,6 +16,7 @@
       "tgui-core/*": ["lib/*"],
       "@common/*": ["lib/common/*.ts"],
       "@components": ["lib/components/index.ts"],
+      "@components/v2": ["lib/index.ts"],
       "@stories/*": ["stories/*.ts", "stories/*.tsx"]
     },
     "resolveJsonModule": true,
