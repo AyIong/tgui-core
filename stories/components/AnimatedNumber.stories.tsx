@@ -18,7 +18,7 @@ function getRandom(): number {
 
 export const Default: Story = {
   render: () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(100);
 
     return (
       <Stack>
@@ -26,7 +26,7 @@ export const Default: Story = {
           <Button onClick={() => setValue(getRandom())}>Change Value</Button>
         </Stack.Item>
         <Stack.Item>
-          <AnimatedNumber value={value} />
+          <AnimatedNumber initial={0} value={value} />
         </Stack.Item>
       </Stack>
     );

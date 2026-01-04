@@ -27,9 +27,6 @@ const EPSILON = 10e-4;
  */
 const Q = 0.8333;
 
-/** Animated numbers are animated at roughly 60 frames per second. */
-const SIXTY_HZ = 1_000.0 / 60.0;
-
 /**
  * ## AnimatedNumber
  *
@@ -39,25 +36,20 @@ const SIXTY_HZ = 1_000.0 / 60.0;
 export function AnimatedNumber(props: Props) {
   const { format, initial, value } = props;
 
-  const interval = useRef<NodeJS.Timeout | null>(null);
-
+  const interval = useRef<number | null>(null);
   const isSafe = initial !== undefined && isSafeNumber(initial);
-  const [currentValue, setCurrentValue] = useState(
-    isSafe ? initial : isSafeNumber(value) ? value : 0,
-  );
+  const startValue = isSafe ? initial : isSafeNumber(value) ? value : 0;
+
+  const [currentValue, setCurrentValue] = useState(startValue);
 
   /** Start ticking if value changes */
   useEffect(() => {
     if (currentValue !== value) {
       startTicking();
     }
+
     return () => stopTicking();
   }, [value]);
-
-  /** Cleanup any intervals */
-  useEffect(() => {
-    return () => stopTicking();
-  }, []);
 
   /** Compute the display string for the current value */
   const displayText = !isSafeNumber(value)
@@ -76,14 +68,20 @@ export function AnimatedNumber(props: Props) {
 
   /** Starts animating the inner span. If already animating, does nothing. */
   function startTicking(): void {
-    if (interval.current !== null) return;
-    interval.current = setInterval(tick, SIXTY_HZ);
+    if (interval.current !== null) {
+      return;
+    }
+
+    interval.current = requestAnimationFrame(tick);
   }
 
   /** Stops animating the inner span. */
   function stopTicking(): void {
-    if (interval.current === null) return;
-    clearInterval(interval.current);
+    if (interval.current === null) {
+      return;
+    }
+
+    cancelAnimationFrame(interval.current);
     interval.current = null;
   }
 
@@ -104,6 +102,7 @@ export function AnimatedNumber(props: Props) {
         return value;
       }
 
+      interval.current = requestAnimationFrame(tick);
       return next;
     });
   }
