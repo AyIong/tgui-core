@@ -2,7 +2,7 @@ import { type BooleanLike, classes } from '@common/react';
 import { computeBoxClassName, computeBoxProps } from '@common/ui';
 import type { BoxProps } from './Box';
 
-type Props = {
+export type IconProps = {
   /** Icon name. @see https://fontawesome.com/v6/search?o=r&m=free */
   name: string;
 } & Partial<{
@@ -17,7 +17,7 @@ type Props = {
 
 const FA_OUTLINE_REGEX = /-o$/;
 
-export function Icon(props: Props) {
+export function Icon(props: IconProps) {
   const { name = '', size, spin, className, rotation, ...rest } = props;
 
   const customStyle = rest.style || {};

@@ -3,3 +3,4 @@ export { AnimatedNumber } from './components/AnimatedNumber';
 export { Autofocus } from './components/Autofocus';
 export { Blink } from './components/Blink';
 export { BlockQuote } from './components/v2/BlockQuote';
+export { Button } from './components/v2/Buttons/Button';

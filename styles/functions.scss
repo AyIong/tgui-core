@@ -21,3 +21,15 @@
 @function darken($color, $amount) {
   @return color.adjust($color, $lightness: -$amount * 1%, $space: hsl);
 }
+
+// Shortcut for relative colors, that accepts percentages (except hue)
+@function oklch-from($color, $l: 0, $c: 0, $h: 0, $a: null) {
+  $l-part: if($l == 0, l, calc(l + $l));
+  $c-part: if($c == 0, c, calc(c + $c));
+  $h-part: if($h == 0, h, calc(h + $h));
+  $a-part: if($a == null, null, "/ #{$a}");
+
+  @return oklch(
+    from var(--#{$color}) #{$l-part} #{$c-part} #{$h-part} #{$a-part}
+  );
+}

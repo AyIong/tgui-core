@@ -1,8 +1,60 @@
 /**
  * TGUI
- * Color Variables
+ * Main Colors
  *
- * This file contains base colors used in TGUI.
+ * This file contains all the main colors that are
+ * used elsewhere and are mixed/modified to
+ * suit the needs of the components/ui's.
+ *
+ * The main goal is to standardize colors.
+ * When adding new independent colors, you should add them here.
+ *
+ * Overwriting these variables will have an extreme impact
+ * on the global appearance of the entire TGUI, as they are used everywhere.
  *
  * Made with love by Aylong (https://github.com/AyIong)
  */
+
+:root {
+  /* Base colors */
+  --color-red: oklch(0.625 0.225 25);
+  --color-orange: oklch(0.7 0.2 40);
+  --color-yellow: oklch(0.875 0.175 100);
+  --color-olive: oklch(0.7 0.18 120);
+  --color-green: oklch(0.65 0.175 150);
+  --color-teal: oklch(0.65 0.175 180);
+  --color-blue: oklch(0.6 0.2 230);
+  --color-violet: oklch(0.5 0.2 290);
+  --color-purple: oklch(0.575 0.25 315);
+  --color-pink: oklch(0.65 0.2 335);
+  --color-brown: oklch(0.6 0.1 55);
+
+  /* Additional colors */
+  --color-gold: oklch(0.75 0.16 80);
+
+  /* Grayscale colors */
+  --color-black: oklch(0 0 0);
+  --color-white: oklch(1 0 0);
+  --color-grey: oklch(0.5 0 0);
+  --color-light-grey: oklch(0.666 0 0);
+  --color-gray: var(--color-grey);
+  --color-light-gray: var(--color-light-grey);
+
+  /* Semantic colors */
+  --primary-l: 0.5;
+  --primary-c: 0.085;
+  --primary-h: 250;
+  --color-primary: oklch(var(--primary-l) var(--primary-c) var(--primary-h));
+
+  --color-good: oklch(0.6 0.15 135);
+  --color-average: oklch(0.65 0.16 65);
+  --color-bad: oklch(0.575 0.2 25);
+  --color-label: oklch(from var(--color-primary) 0.6 0.04 h);
+
+  /* Text colors */
+  --text-default: var(--color-white);
+  --text-translucent: oklch(from var(--text-default) l c h / 0.5);
+  --text-translucent-light: oklch(from var(--text-default) l c h / 0.75);
+  --text-fixed-white: var(--color-white);
+  --text-fixed-black: var(--color-black);
+}
