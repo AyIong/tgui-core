@@ -1,4 +1,3 @@
-import type { BooleanLike } from '@common/react';
 import {
   type BooleanStyleMap,
   computeBoxClassName,
@@ -11,6 +10,7 @@ import {
   type CSSProperties,
   createElement,
   type HTMLAttributes,
+  type JSX,
   type ReactNode,
 } from 'react';
 
@@ -19,11 +19,11 @@ export type BoxInternalProps = Partial<{
    * The component used for the root node.
    * @default <div>
    */
-  as: string;
+  as: keyof JSX.IntrinsicElements;
   /** The content of the component. */
   children: ReactNode;
   /** Class name to pass into the component. */
-  className: string | BooleanLike;
+  className: string;
   /** The unique id of the component. */
   id: string;
   /** The inline style of the component. */

@@ -1,0 +1,108 @@
+/**
+ * TGUI
+ * Values Variables
+ *
+ * This file contains all values, like spacings, sizes, etc.
+ * You won't find any colors here, just numbers, letters and calculations.
+ *
+ * Made with love by Aylong (https://github.com/AyIong)
+ */
+:root {
+  // MARK: Font
+  --font-size: 12px;
+  --font-family: Verdana, Geneva, sans-serif;
+  --font-family-mono: Consolas, monospace;
+
+  // MARK: Border width
+  --border-width-unit: 1px;
+  /* 1px */
+  --border-width-1: var(--border-width-unit);
+  /* 2px */
+  --border-width-2: calc(var(--border-width-unit) * 2);
+  /* 3px */
+  --border-width-3: calc(var(--border-width-unit) * 3);
+  /* 4px */
+  --border-width-4: calc(var(--border-width-unit) * 4);
+  /* 5px */
+  --border-width-5: calc(var(--border-width-unit) * 5);
+  /* 6px */
+  --border-width-6: calc(var(--border-width-unit) * 6);
+
+  // MARK: Border radius
+  --border-radius-unit: 3px;
+  /* 3px */
+  --border-radius-1: var(--border-radius-unit);
+  /* 6px */
+  --border-radius-2: calc(var(--border-radius-unit) * 2);
+  /* 9px */
+  --border-radius-3: calc(var(--border-radius-unit) * 3);
+  /* 12px */
+  --border-radius-4: calc(var(--border-radius-unit) * 4);
+  /* 24px */
+  --border-radius-5: calc(var(--border-radius-unit) * 8);
+  /* Maximum border radius. Makes perfect circles */
+  --border-radius-6: 99999px;
+
+  // MARK: Spacing
+  --space-unit: 6px;
+  /* 1px */
+  --space-xxs: calc(var(--space-unit) / 6);
+  /* 2px */
+  --space-xs: calc(var(--space-unit) / 3);
+  /* 3px */
+  --space-s: calc(var(--space-unit) / 2);
+  /* 4px */
+  --space-sm: calc(var(--space-unit) * 2 / 3);
+  /* 6px */
+  --space-m: var(--space-unit);
+  /* 8px */
+  --space-ml: calc(var(--space-unit) * 4 / 3);
+  /* 9px */
+  --space-l: calc(var(--space-unit) * 3 / 2);
+  /* 12px */
+  --space-xl: calc(var(--space-unit) * 2);
+  /* 24px */
+  --space-xxl: calc(var(--space-unit) * 4);
+
+  // MARK: Transition times
+  --transition-time-unit: 1s;
+  /* 0.1s | 100ms */
+  --transition-time-fast: calc(var(--transition-time-unit) * 0.1);
+  /* 0.2s | 200ms */
+  --transition-time-medium: calc(var(--transition-time-unit) * 0.2);
+  /* 0.5s | 500ms */
+  --transition-time-slow: calc(var(--transition-time-unit) * 0.5);
+  /* 1s | 1000ms */
+  --transition-time-slowest: var(--transition-time-unit);
+
+  // MARK: Shadow
+  --shadow-unit: 1rem;
+  /* 0 0 0.5rem */
+  --shadow-glow-small: 0 0 calc(var(--shadow-unit) * 0.5);
+  /* 0 0 1rem */
+  --shadow-glow-medium: 0 0 var(--shadow-unit);
+  /* 0 0 2rem */
+  --shadow-glow-large: 0 0 calc(var(--shadow-unit) * 2);
+
+  // MARK: Blur
+  --blur-small: blur(6px);
+  --blur-medium: blur(12px);
+  --blur-large: blur(24px);
+
+  // MARK: Color adjustment
+  /* Color lightness multiplier. + for FG - for BG */
+  --adjust-color: 5;
+  /* Color lightness multiplier wneh hovered */
+  --adjust-hover: 10;
+  /* Color lightness multiplier when active (clicked) */
+  --adjust-active: 7.5;
+
+  // MARK: Cursors
+  --cursor-default: default;
+  --cursor-pointer: pointer;
+  --cursor-disabled: var(--cursor-default);
+  --cursor-n-resize: n-resize;
+  --cursor-s-resize: s-resize;
+  --cursor-se-resize: se-resize;
+  --cursor-e-resize: e-resize;
+}

@@ -5,6 +5,9 @@
 @use "./vars-values";
 @use "./vars-components";
 
+@use "./variables";
+@use "./colors-v2";
+
 // Core styles
 @include meta.load-css("./reset.scss");
 
@@ -37,3 +40,6 @@
 @include meta.load-css("./components/Tabs.scss");
 @include meta.load-css("./components/TextArea.scss");
 @include meta.load-css("./components/Tooltip.scss");
+
+// Components v2
+@include meta.load-css("./components/v2/BlockQuote.scss");
