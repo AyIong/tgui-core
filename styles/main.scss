@@ -5,7 +5,6 @@
 @use "./vars-values";
 @use "./vars-components";
 
-@use "./variables";
 @use "./colors-v2";
 
 // Core styles
@@ -43,4 +42,4 @@
 
 // Components v2
 @include meta.load-css("./components/v2/BlockQuote.scss");
-@include meta.load-css("./components/v2/Buttons.scss");
+@include meta.load-css("./components/v2/Buttons/base.scss");
