@@ -3,7 +3,7 @@ import {
   booleanStyleMap,
   eventHandlers,
   stringStyleMap,
-} from '../lib/common/ui';
+} from '../lib/common/ui.ts';
 import type { BoxInternalProps } from '../lib/components/Box';
 
 const boxInternalProps: Array<keyof BoxInternalProps> = [
@@ -43,6 +43,7 @@ const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.tsx'],
 
   typescript: {
+    check: true,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       propFilter: (props, component) => {
@@ -52,8 +53,11 @@ const config: StorybookConfig = {
 
         return !boxProps.includes(props.name);
       },
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
     },
   },
+  features: { interactions: false, backgrounds: false },
 };
 
 export default config;
