@@ -1,11 +1,11 @@
 import type { BoxProps } from '@components';
-import type { PropsWithChildren, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export type SectionProps = Partial<{
   /** Buttons to render aside the section title. */
   buttons: ReactNode;
   /** id to assosiate with the parent div element used by this section, for uses with procs like getElementByID */
-  container_id: string;
+  containerId: string;
   /** If true, fills all available vertical space. */
   fill: boolean;
   /** If true, removes all section padding. */
@@ -23,5 +23,4 @@ export type SectionProps = Partial<{
   /** Title of the section. */
   title: ReactNode;
 }> &
-  PropsWithChildren &
   BoxProps;

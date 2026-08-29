@@ -46,7 +46,7 @@ export function Section(props: SectionProps) {
     buttons,
     children,
     className,
-    container_id,
+    containerId,
     fill,
     fitted,
     flexGrow,
@@ -86,10 +86,8 @@ export function Section(props: SectionProps) {
       initialize({
         target: ourRef.current,
         elements: {
-          viewport: (host) =>
-            host.querySelector('[data-os-viewport]') as HTMLDivElement,
-          content: (viewport) =>
-            viewport.querySelector('[data-os-content]') as HTMLDivElement,
+          viewport: (host) => host.querySelector('[data-os-viewport]') as HTMLDivElement,
+          content: (viewport) => viewport.querySelector('[data-os-content]') as HTMLDivElement,
         },
       });
     }
@@ -97,8 +95,7 @@ export function Section(props: SectionProps) {
     // Forward real scrollable container ref, if section scrollable (OS is initialized)
     // Or just send ref created by useRef
     if (ref) {
-      ref.current =
-        (instance()?.elements().viewport as HTMLDivElement) || ourRef.current;
+      ref.current = (instance()?.elements().viewport as HTMLDivElement) || ourRef.current;
     }
 
     return () => {
@@ -114,7 +111,7 @@ export function Section(props: SectionProps) {
 
   return (
     <section
-      id={container_id}
+      id={containerId}
       className={clsx([
         'section',
         fill && 'fill',

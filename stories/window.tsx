@@ -1,22 +1,17 @@
 import clsx from 'clsx';
-import {
-  type PropsWithChildren,
-  type ReactNode,
-  type RefObject,
-  useRef,
-} from 'react';
+import { type ReactNode, type RefObject, useRef } from 'react';
 import { TitleBar } from 'tgui-core/components/index';
 import { Layout } from 'tgui-core/components/Layout/index';
 
 type Props = Partial<{
+  children: ReactNode;
   canClose: boolean;
   height: number;
   title: string;
   width: number;
   showDimmer: boolean;
   buttons: ReactNode;
-}> &
-  PropsWithChildren;
+}>;
 
 export function Window(props: Props) {
   const {
@@ -35,9 +30,7 @@ export function Window(props: Props) {
       <TitleBar title={title} canClose={canClose}>
         {buttons}
       </TitleBar>
-      <Layout.Content className={clsx([showDimmer && 'dimmed'])}>
-        {children}
-      </Layout.Content>
+      <Layout.Content className={clsx([showDimmer && 'dimmed'])}>{children}</Layout.Content>
       {/* Resize handlers */}
       <ResizeHandler targetRef={ref} axis="x" />
       <ResizeHandler targetRef={ref} axis="y" />
@@ -47,10 +40,10 @@ export function Window(props: Props) {
 }
 
 type WindowContentProps = Partial<{
+  children: ReactNode;
   className: string;
   fitted: boolean;
-}> &
-  PropsWithChildren;
+}>;
 
 export function WindowContent(props: WindowContentProps) {
   const { children, className, fitted, ...rest } = props;
@@ -113,7 +106,5 @@ function ResizeHandler(props: ResizerProps) {
     document.documentElement.classList.remove(`resizing-${axis}`);
   }
 
-  return (
-    <div className={`resize-handler ${axis}`} onMouseDown={handleDragStart} />
-  );
+  return <div className={`resize-handler ${axis}`} onMouseDown={handleDragStart} />;
 }
