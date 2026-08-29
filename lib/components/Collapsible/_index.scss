@@ -1,0 +1,152 @@
+@use "../../../styles/functions" as fn;
+
+.collapsible {
+  --fg-color: contrast-color(#{fn.oklch-from(bg-color, $l: -0.1)});
+  --border-radius: var(--border-radius-2);
+  --gap: var(--space-m);
+
+  margin-top: var(--space-m);
+
+  // Container with clickables, such as collapsible button and buttons prop content
+  &-controls {
+    display: flex;
+    gap: var(--space-m);
+  }
+
+  // Collapsible button, opens content. What else did you expect?
+  &-button {
+    flex: 1;
+    user-select: none;
+    cursor: var(--cursor-pointer);
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    padding: 0 var(--space-m);
+    min-height: var(--base-height);
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+  }
+
+  &-title {
+    flex: 1;
+  }
+
+  &-buttons {
+    display: flex;
+    gap: var(--gap);
+  }
+
+  // Content styles, middle layer of content container
+  &-content {
+    --content-br: calc(var(--border-radius) - var(--space-xs));
+
+    flex: 1;
+    overflow: hidden;
+    margin: var(--space-xs);
+    margin-top: 0;
+    background-color: color-mix(var(--bg-color), var(--background-color) 85%);
+    border-top: var(--border-width-2) solid
+      oklch(from var(--bg-color) calc(l + 0.1) c h);
+    border-radius: 0 0 var(--content-br) var(--content-br);
+    box-shadow: inset var(--shadow-medium) var(--shadow-color);
+
+    // Wrap content for a neat borders. Also used for smooth height animation
+    &-wrapper {
+      overflow: hidden;
+      display: flex;
+      height: max-content;
+      background-color: var(--bg-color);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      transition: height var(--transition-time-medium);
+    }
+
+    // Used to animate collapsible content appearing/disappearing
+    &-container {
+      margin: var(--space-sm);
+      transform-origin: bottom;
+      transition-property: transform, opacity;
+      transition-duration: var(--transition-time-medium);
+
+      .is-open & {
+        transition-delay: var(--transition-time-fast);
+      }
+    }
+  }
+
+  // Slightly style components inside buttons container, for consistency
+  &-button,
+  &-buttons > * {
+    border-radius: var(--border-radius);
+
+    .collapsible:has(.collapsible-content-wrapper) & {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  // Handmade animated icon. Default chevron had... bad alignment
+  // Component still have ability to have custom FA icons
+  &-icon {
+    position: relative;
+    height: fn.em(2px);
+    width: var(--font-size);
+    border-radius: var(--border-radius-c);
+    transition: transform var(--transition-time-fast);
+
+    &-1,
+    &-2,
+    &-3 {
+      position: absolute;
+      background-color: var(--fg-color);
+    }
+
+    .is-open & {
+      --step: #{fn.em(4px)};
+      transform: translateY(calc(-1 * var(--step)));
+
+      &-1,
+      &-2,
+      &-3 {
+        transition-delay: var(--transition-time-medium);
+      }
+
+      &-1 {
+        transform: translateY(fn.em(0px)); // Reset inherited transofrm
+      }
+
+      &-2 {
+        transform: translateY(var(--step));
+      }
+
+      &-3 {
+        transform: translateY(calc(var(--step) * 2));
+      }
+    }
+  }
+
+  // React Animations
+  &-enter,
+  &-exit-active {
+    height: 0;
+
+    .collapsible-content-container {
+      opacity: 0;
+      transform: translateY(25%);
+    }
+  }
+
+  &-enter-active,
+  &-enter-done {
+    height: max-content;
+
+    .collapsible-content-container {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Remove margin if directly inside <Stack>
+  .stack > & {
+    margin-top: 0;
+  }
+}

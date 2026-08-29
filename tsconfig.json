@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowImportingTsExtensions": true,
-    "baseUrl": ".",
     "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext", "ScriptHost"],
@@ -12,10 +11,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "tgui-core/*": ["lib/*"],
-      "@common/*": ["lib/common/*.ts"],
-      "@components": ["lib/components/index.ts"],
-      "@stories/*": ["stories/*.ts", "stories/*.tsx"]
+      "tgui-core/*": ["./lib/*.ts", "./lib/*.tsx"],
+      "@common/*": ["./lib/common/*.ts"],
+      "@components": ["./lib/components/index.ts"],
+      "@hooks": ["./lib/hooks/index.ts"],
+      "@stories/*": [
+        "./stories/*.ts",
+        "./stories/*.tsx",
+        "./lib/components/*.stories.tsx"
+      ]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

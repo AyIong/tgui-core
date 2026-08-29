@@ -1,0 +1,93 @@
+@use "../../../styles/functions" as fn;
+
+.section {
+  --section-padding: var(--space-m);
+  --section-title-color: var(--text-color);
+  --section-title-border-color: var(--primary-color);
+  --section-border-color: var(--border-color);
+  --section-shadow-color: var(--shadow-color);
+
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--section-color);
+  border: var(--border-width-1) solid var(--section-border-color);
+  border-top-color: fn.oklch-from(section-border-color, $l: 0.05);
+  border-bottom-color: fn.oklch-from(section-border-color, $l: -0.025);
+  border-radius: var(--section-border-radius);
+  box-shadow: var(--shadow-small) var(--section-shadow-color);
+
+  &.fill {
+    height: 100%;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    padding: var(--space-m);
+
+    > .left-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: fn.rem(16px);
+      min-height: var(--base-height);
+      margin-left: var(--space-s);
+      color: var(--section-title-color);
+    }
+
+    > .right-side {
+      display: flex;
+      gap: var(--space-m);
+      // Protect from affecting fontSize prop on it
+      font-size: 1rem;
+    }
+  }
+
+  &-content {
+    inset: 0;
+    padding: var(--section-padding);
+
+    &-wrapper {
+      --wrapper-br: var(--border-radius-3);
+
+      flex: 1;
+      position: relative;
+      border-top: var(--border-width-2) solid var(--section-title-border-color);
+    }
+
+    &.no-top-padding {
+      padding-top: 0;
+    }
+
+    &.scrollable {
+      position: absolute;
+
+      > .os-scrollbar {
+        // Allow to change it only for section
+        --os-handle-bg: var(--section-scrollbar-color, var(--scrollbar-color));
+      }
+    }
+  }
+
+  &.fitted > &-content {
+    padding: 0;
+  }
+
+  // Nested sections
+  .section {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    // Compensate section-content padding
+    margin-inline: calc(-1 * var(--section-padding));
+    margin-bottom: calc(-1 * var(--section-padding));
+
+    .section-title > .left-side {
+      font-size: fn.rem(14px);
+    }
+  }
+}

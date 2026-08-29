@@ -4,15 +4,16 @@ import {
   eventHandlers,
   stringStyleMap,
 } from '../lib/common/ui.ts';
-import type { BoxInternalProps } from '../lib/components/Box';
+import type { BoxInternalProps } from '../lib/components/Box/types';
 
-const boxInternalProps: Array<keyof BoxInternalProps> = [
+const boxInternalProps: Array<keyof BoxInternalProps<HTMLDivElement>> = [
   'as',
   'children',
   'className',
   'id',
   'style',
   'tw',
+  'ref',
 ];
 
 const boxProps = [
@@ -24,6 +25,7 @@ const boxProps = [
 
 const config: StorybookConfig = {
   addons: ['@storybook/addon-docs'],
+  features: { backgrounds: false, interactions: false },
 
   framework: {
     name: 'storybook-react-rsbuild',
@@ -40,7 +42,10 @@ const config: StorybookConfig = {
     return config;
   },
 
-  stories: ['../stories/**/*.stories.tsx'],
+  stories: [
+    '../stories/**/*.stories.tsx',
+    '../lib/components/**/*.stories.tsx',
+  ],
 
   typescript: {
     check: true,
@@ -57,7 +62,6 @@ const config: StorybookConfig = {
       shouldRemoveUndefinedFromOptional: true,
     },
   },
-  features: { interactions: false, backgrounds: false },
 };
 
 export default config;

@@ -1,10 +1,6 @@
 html,
 body {
-  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-base);
-  background-color: var(--color-base);
-  color: var(--color-text);
-}
-
-#storybook-root {
-  height: 100%;
+  scrollbar-color: var(--surface-color) transparent;
+  background-color: oklch(from var(--background-color) calc(l - 0.05) c h);
+  color: var(--text-color);
 }

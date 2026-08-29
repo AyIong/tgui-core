@@ -1,0 +1,87 @@
+@use "../../../styles/functions" as fn;
+
+.titlebar {
+  --titlebar-background: var(--surface-color);
+  --titlebar-foreground: var(--text-color-translucent-light);
+  --titlebar-height: #{fn.rem(32px)};
+
+  user-select: none;
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  width: 100%;
+  height: var(--titlebar-height);
+  gap: var(--space-ml);
+  padding: 0 var(--space-ml);
+  background-color: var(--titlebar-background);
+  z-index: 101; // More than Dimmer
+
+  &.closeable {
+    padding-right: 0;
+  }
+
+  > .dragzone {
+    position: absolute;
+    inset: 0;
+  }
+
+  > .status-icon {
+    font-size: fn.rem(20px);
+    text-align: center;
+    transition: color var(--transition-time-slow);
+  }
+
+  > .title {
+    pointer-events: none;
+    display: inline-block;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1.15rem;
+    color: var(--titlebar-foreground);
+  }
+
+  > .buttons {
+    pointer-events: all;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    z-index: 102;
+  }
+
+  > .close {
+    box-sizing: content-box;
+    cursor: var(--cursor-pointer);
+    display: flex;
+    pointer-events: all;
+    height: 100%;
+    width: var(--titlebar-height);
+    margin-left: calc(-1 * var(--space-ml));
+    padding: 0 var(--space-ml);
+    z-index: 102;
+
+    .close-icon {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.5;
+      margin: var(--space-m) 0;
+      border-radius: var(--border-radius-2);
+      transform: scale(1.25);
+      transition-property: background-color, opacity, transform;
+      transition-duration: var(--transition-time-medium);
+    }
+
+    &:hover {
+      .close-icon {
+        opacity: 1;
+        background-color: var(--color-bad);
+        transform: scale(1.00001);
+        transition: none;
+      }
+    }
+  }
+}

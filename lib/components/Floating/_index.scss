@@ -1,0 +1,52 @@
+#floating-root {
+  z-index: 999;
+}
+
+.floating {
+  --floating-indentation: var(--space-m);
+
+  z-index: 5;
+
+  &.animated {
+    &[data-transition="open"] {
+      opacity: 1;
+      transform: translate(var(--translate-x, 0), var(--translate-y, 0));
+    }
+
+    &[data-transition="close"],
+    &[data-transition="initial"] {
+      opacity: 0;
+    }
+
+    &[data-transition="open"],
+    &[data-transition="close"] {
+      transition-duration: var(--transition-time-medium);
+      transition-property: opacity, transform;
+    }
+  }
+
+  // MARK: Transform origin handling
+  &[data-position="top-start"],
+  &[data-position="top"],
+  &[data-position="top-end"] {
+    --translate-y: calc(-1 * var(--floating-indentation));
+  }
+
+  &[data-position="left-start"],
+  &[data-position="left"],
+  &[data-position="left-end"] {
+    --translate-x: calc(-1 * var(--floating-indentation));
+  }
+
+  &[data-position="right-start"],
+  &[data-position="right"],
+  &[data-position="right-end"] {
+    --translate-x: var(--floating-indentation);
+  }
+
+  &[data-position="bottom-start"],
+  &[data-position="bottom"],
+  &[data-position="bottom-end"] {
+    --translate-y: var(--floating-indentation);
+  }
+}

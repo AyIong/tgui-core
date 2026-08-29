@@ -8,66 +8,68 @@
  * Made with love by Aylong (https://github.com/AyIong)
  */
 
+@use "functions" as fn;
+
 :root {
-  /* Font */
-  --font-size: 12px;
-  --font-family: Verdana, Geneva, sans-serif;
-  --font-family-mono: Consolas, monospace;
+  // MARK: Fonts
+  --font-size-unit: 12;
+  --font-family: Inter, sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
+  --line-height: 16px;
 
-  /* Border thickness */
-  --border-thickness-unit: 0.5em;
-  /* 1px | 0.085em */
-  --border-thickness-tiny: calc(var(--border-thickness-unit) * 0.5 * 0.34);
-  /* 2px | 0.17em */
-  --border-thickness-small: calc(var(--border-thickness-unit) * 0.34);
-  /* 3px | 0.25em */
-  --border-thickness-medium: calc(var(--border-thickness-unit) * 0.5);
-  /* 4px | 0.33em */
-  --border-thickness-large: calc(var(--border-thickness-unit) * 0.66);
-  /* 6px | 0.5em */
-  --border-thickness-larger: var(--border-thickness-unit);
+  // MARK: Border width
+  --border-width-unit: #{fn.rem(1px)};
+  /* 1px */
+  --border-width-1: var(--border-width-unit);
+  /* 2px */
+  --border-width-2: calc(var(--border-width-unit) * 2);
+  /* 3px */
+  --border-width-3: calc(var(--border-width-unit) * 3);
+  /* 4px */
+  --border-width-4: calc(var(--border-width-unit) * 4);
+  /* 6px */
+  --border-width-5: calc(var(--border-width-unit) * 6);
 
-  /* Border radius */
-  --border-radius-unit: 1rem;
-  /* 2px | 0.17rem */
-  --border-radius-tiny: calc(var(--border-radius-unit) * 0.25 * 0.68);
-  /* 3px | 0.25rem */
-  --border-radius-small: calc(var(--border-radius-unit) * 0.25);
-  /* 4px | 0.33rem */
-  --border-radius-medium: calc(var(--border-radius-unit) * 0.33);
-  /* 6px | 0.5rem */
-  --border-radius-large: calc(var(--border-radius-unit) * 0.5);
-  /* 10px | 0.75rem */
-  --border-radius-larger: calc(var(--border-radius-unit) * 0.75);
-  /* 12px | 1rem*/
-  --border-radius-huge: var(--border-radius-unit);
-  /* 24px | 2rem*/
-  --border-radius-giant: calc(var(--border-radius-unit) * 2);
+  // MARK: Border radius
+  --border-radius-unit: #{fn.rem(2px)};
+  /* 2px */
+  --border-radius-1: var(--border-radius-unit);
+  /* 4px */
+  --border-radius-2: calc(var(--border-radius-unit) * 2);
+  /* 6px */
+  --border-radius-3: calc(var(--border-radius-unit) * 3);
+  /* 12px */
+  --border-radius-4: calc(var(--border-radius-unit) * 6);
+  /* 24px */
+  --border-radius-5: calc(var(--border-radius-unit) * 12);
   /* Maximum border radius. Makes perfect circles */
-  --border-radius-circular: 99999px;
+  --border-radius-c: 99999px;
 
-  /* Spacing */
-  --space-unit: 1em;
-  /* 1px | 0.085em */
-  --space-xxs: calc(var(--space-unit) * 0.25 * 0.34);
-  /* 2px | 0.17em */
-  --space-xs: calc(var(--space-unit) * 0.25 * 0.68);
-  /* 3px | 0.25em */
-  --space-s: calc(var(--space-unit) * 0.25);
-  /* 4px | 0.33em */
-  --space-sm: calc(var(--space-unit) * 0.33);
-  /* 6px | 0.5em */
-  --space-m: calc(var(--space-unit) * 0.5);
-  /* 8px | 0.66em */
-  --space-ml: calc(var(--space-unit) * 0.66);
-  /* 10px | 0.75em */
-  --space-l: calc(var(--space-unit) * 0.75);
-  /* 12px | 1em*/
-  --space-xl: var(--space-unit);
-  /* 24px | 2em*/
-  --space-xxl: calc(var(--space-unit) * 2);
+  // MARK: Spacing
+  --space-unit: #{fn.rem(1px)};
+  /* 1px */
+  --space-xxs: var(--space-unit);
+  /* 2px */
+  --space-xs: calc(var(--space-unit) * 2);
+  /* 3px */
+  --space-s: calc(var(--space-unit) * 3);
+  /* 4px */
+  --space-sm: calc(var(--space-unit) * 4);
+  /* 6px */
+  --space-m: calc(var(--space-unit) * 6);
+  /* 9px */
+  --space-ml: calc(var(--space-unit) * 9);
+  /* 12px */
+  --space-l: calc(var(--space-unit) * 12);
+  /* 15px */
+  --space-xl: calc(var(--space-unit) * 15);
+  /* 21px */
+  --space-xxl: calc(var(--space-unit) * 21);
 
-  /* Transition */
+  // MARK: Sizes
+  --base-height: #{fn.rem(20px)};
+
+  // MARK: Transition times
   --transition-time-unit: 1s;
   /* 0.1s | 100ms */
   --transition-time-fast: calc(var(--transition-time-unit) * 0.1);
@@ -78,32 +80,32 @@
   /* 1s | 1000ms */
   --transition-time-slowest: var(--transition-time-unit);
 
-  /* Shadows */
-  --shadow-unit: 1rem;
-  /* 0 0 0.5rem */
-  --shadow-glow-small: 0 0 calc(var(--shadow-unit) * 0.5);
-  /* 0 0 1rem */
-  --shadow-glow-medium: 0 0 var(--shadow-unit);
-  /* 0 0 2rem */
-  --shadow-glow-large: 0 0 calc(var(--shadow-unit) * 2);
+  // MARK: Shadows
+  --shadow-small: 0 #{fn.rem(2px)} #{fn.rem(2px)} #{fn.rem(-1px)};
+  --shadow-medium: 0 #{fn.rem(3px)} #{fn.rem(3px)} #{fn.rem(-1px)};
+  --shadow-large: 0 #{fn.rem(3px)} #{fn.rem(3px)} 0;
 
-  /* Blur */
-  --blur-small: blur(6px);
-  --blur-medium: blur(12px);
-  --blur-large: blur(24px);
+  // MARK: Blur
+  --blur-small: blur(3px);
+  --blur-medium: blur(6px);
+  --blur-large: blur(12px);
 
-  /* Adjustments */
+  // MARK: Color adjustment
   /* Color lightness multiplier. + for FG - for BG */
-  --adjust-color: 5;
+  --adjust-color: 0.075;
   /* Color lightness multiplier when hovered */
-  --adjust-hover: 10;
+  --adjust-hover: 0.1;
   /* Color lightness multiplier when active (clicked) */
-  --adjust-active: 7.5;
+  --adjust-active: 0.05;
+
+  // MARK: Opacity
+  --opacity-disabled: 0.75;
 
   /* Cursors */
   --cursor-default: default;
   --cursor-pointer: pointer;
   --cursor-grab: grab;
+  --cursor-text: text;
   --cursor-disabled: var(--cursor-default);
   --cursor-n-resize: n-resize;
   --cursor-s-resize: s-resize;

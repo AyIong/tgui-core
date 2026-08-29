@@ -1,8 +1,9 @@
+import type { BoxProps } from '@components';
+import clsx from 'clsx';
 import type { CSSProperties, DOMAttributes } from 'react';
-import type { BoxProps } from '../components/Box';
 import { CSS_COLORS } from './constants.ts';
 import { getCssVariableValue } from './css.ts';
-import { type BooleanLike, classes } from './react.ts';
+import type { BooleanLike } from './react.ts';
 
 type UnitMapper = (value: unknown) => string | undefined;
 
@@ -15,11 +16,11 @@ type StyleCourier = (
  * Coverts our rem-like spacing unit into a CSS unit.
  */
 export const unit: UnitMapper = (value) => {
-  const fontSize = Number.parseFloat(getCssVariableValue('font-size')) || 12;
+  const fontSize = parseFloat(getCssVariableValue('font-size-unit')) || 12;
   if (typeof value === 'string') {
     // Transparently convert pixels into rem units
     if (value.endsWith('px')) {
-      return `${Number.parseFloat(value) / fontSize}rem`;
+      return `${parseFloat(value) / fontSize}rem`;
     }
     return value;
   }
@@ -329,7 +330,7 @@ export function computeBoxClassName<TElement = HTMLDivElement>(
   const color = props.textColor || props.color;
   const { backgroundColor } = props;
 
-  return classes([
+  return clsx([
     isColorClass(color) && `color-${color}`,
     isColorClass(backgroundColor) && `color-bg-${backgroundColor}`,
   ]);

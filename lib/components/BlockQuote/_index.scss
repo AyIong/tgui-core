@@ -1,0 +1,14 @@
+@use "../../../styles/functions" as fn;
+
+.blockquote {
+  --blockquote-color: #{fn.oklch-from(fg-color, $l: var(--adjust-color))};
+
+  display: block;
+  padding-left: var(--space-m);
+  color: var(--blockquote-color);
+  border-left: var(--border-width-2) solid var(--blockquote-color);
+
+  &:not(:last-child) {
+    margin-bottom: var(--space-m);
+  }
+}

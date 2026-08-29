@@ -1,28 +1,42 @@
+@use "./functions" as fn;
+
+:root {
+  // Enable animations between height: 0% => height: 100%
+  // for example.
+  interpolate-size: allow-keywords;
+}
+
 html,
 body {
   box-sizing: border-box;
   height: 100%;
   margin: 0;
-  font-size: var(--font-size, 12px);
-  color: var(--color-text, hsl(0, 0%, 100%));
-  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-base);
+  color: var(--text-color, hsl(0, 0%, 100%));
 }
 
 html {
+  --font-size: calc(var(--font-size-unit) * 1px);
+
   cursor: var(--cursor-default, default); // Reset the cursor.
   overflow: hidden;
+  font-size: var(--font-size, 12px);
+  line-height: var(--line-height, 16px);
 }
 
 body {
   overflow: auto;
   position: relative;
-  font-family: var(--font-family, Verdana, Geneva, sans-serif);
+  font-family: var(--font-family, Arimo, Verdana, sans-serif);
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+  font-kerning: none;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -33,28 +47,37 @@ h5,
 h6 {
   display: block;
   margin: 0;
-  padding: var(--space-m, 6px) 0;
-  padding: var(--space-m, 0.5rem) 0;
+  padding: var(--space-m) 0;
+  padding: var(--space-m) 0;
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: fn.rem(18px);
 }
 
 h2 {
-  font-size: 1.333rem;
+  font-size: fn.rem(16px);
 }
 
 h3 {
-  font-size: 1.167rem;
+  font-size: fn.rem(14px);
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: fn.rem(12px);
 }
 
 td,
 th {
   vertical-align: baseline;
   text-align: left;
+}
+
+// Remove any default styles
+blockquote,
+input,
+textarea,
+button,
+fieldset {
+  all: unset;
 }

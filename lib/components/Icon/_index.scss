@@ -1,0 +1,23 @@
+@use "../../../styles/functions" as fn;
+
+.icon {
+  --icon-width: #{fn.em(16px)};
+  --fa-width: var(--icon-width);
+}
+
+.icon-stack {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    &:before {
+      vertical-align: middle;
+    }
+
+    &:not(:first-child) {
+      position: absolute;
+    }
+  }
+}

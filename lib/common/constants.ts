@@ -1,3 +1,5 @@
+import type { OverlayScrollbarsComponentProps } from 'overlayscrollbars-react';
+
 type Gas = {
   color: string;
   id: string;
@@ -11,6 +13,24 @@ export const UI_INTERACTIVE = 2;
 export const UI_UPDATE = 1;
 export const UI_DISABLED = 0;
 export const UI_CLOSE = -1;
+
+// Container outside react-root, where will be located
+// created by FloatingUI components
+export const floatingRoot = 'floating-root';
+
+// Container under titlebar, where will be located overlay components
+export const uiRootId = 'layout-root';
+
+// OverlayScrollbars options
+export const osOptions: OverlayScrollbarsComponentProps = {
+  options: {
+    scrollbars: {
+      autoHide: 'leave',
+      autoHideSuspend: true,
+      theme: '',
+    },
+  },
+};
 
 // All game related colors are stored here
 export const COLORS = {
@@ -365,12 +385,14 @@ export const COMPONENT_COLORS = {
     'gold',
   ],
   states: [
-    'default',
+    'primary',
+    'secondary',
+    'surface',
+    'background',
     'good',
     'average',
     'bad',
     'black',
     'white',
-    'transparent',
   ],
 } as const;
