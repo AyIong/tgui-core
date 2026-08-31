@@ -42,22 +42,19 @@ export function RestrictedInput(props: RestrictedInputProps) {
   const inputRef = (ref || ourRef) as RefObject<HTMLInputElement>;
 
   useAutofocus(inputRef, { autoFocus, autoSelect });
-  const { innerValue, ...interactions } = useInput<HTMLInputElement, number>(
-    inputRef,
-    {
-      isNumeric: true,
-      dontUseTabForIndent: true,
-      disabled,
-      expensive,
-      selfClear,
-      value,
-      onBlur,
-      onChange,
-      onKeyDown,
-      onEnter,
-      onEscape,
-    },
-  );
+  const { innerValue, ...interactions } = useInput<HTMLInputElement, number>(inputRef, {
+    isNumeric: true,
+    dontUseTabForIndent: true,
+    disabled,
+    expensive,
+    selfClear,
+    value,
+    onBlur,
+    onChange,
+    onKeyDown,
+    onEnter,
+    onEscape,
+  });
 
   const [isValid, setIsValid] = useState(true);
   /** Check validity on input change */

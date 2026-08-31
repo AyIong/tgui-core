@@ -13,13 +13,7 @@ import {
   useTransitionStatus,
 } from '@floating-ui/react';
 import clsx from 'clsx';
-import {
-  cloneElement,
-  isValidElement,
-  type ReactElement,
-  useEffect,
-  useState,
-} from 'react';
+import { cloneElement, isValidElement, type ReactElement, useEffect, useState } from 'react';
 import { floatingRoot } from 'tgui-core/common/constants';
 import type { FloatingProps } from './types';
 
@@ -151,11 +145,7 @@ export function Floating(props: FloatingProps) {
   const floatingContent = (
     <div
       ref={refs.setFloating}
-      className={clsx([
-        'floating',
-        !animationDuration && 'animated',
-        contentClasses,
-      ])}
+      className={clsx(['floating', !animationDuration && 'animated', contentClasses])}
       data-position={context.placement}
       data-transition={status}
       style={{ ...floatingStyles, ...contentStyles }}

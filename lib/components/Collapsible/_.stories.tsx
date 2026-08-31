@@ -25,13 +25,11 @@ export const Colors: Story = {
   args: collapsibleArgs,
   render: (args) => (
     <Stack vertical>
-      {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map(
-        (color) => (
-          <Collapsible key={color} color={color} {...args}>
-            {color}
-          </Collapsible>
-        ),
-      )}
+      {[...COMPONENT_COLORS.states, ...COMPONENT_COLORS.spectrum].map((color) => (
+        <Collapsible key={color} color={color} {...args}>
+          {color}
+        </Collapsible>
+      ))}
     </Stack>
   ),
 };
@@ -39,7 +37,5 @@ export const Colors: Story = {
 export const WithButtons: Story = {
   args: collapsibleArgs,
 
-  render: (args) => (
-    <Collapsible {...args} buttons={<Button>Button</Button>} open />
-  ),
+  render: (args) => <Collapsible {...args} buttons={<Button>Button</Button>} open />,
 };

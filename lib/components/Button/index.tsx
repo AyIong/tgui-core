@@ -4,6 +4,46 @@ import { useButton } from '@hooks';
 import clsx from 'clsx';
 import type { ButtonBaseProps, ButtonContentProps, ButtonIconProps, ButtonProps } from './types';
 
+/**
+ * ## Button
+ *
+ * Buttons allow users to take actions, and make choices, with a single click.
+ *
+ * - [View documentation on tgui core](https://tgstation.github.io/tgui-core/?path=/docs/components-button--docs)
+ * - [View inherited Box props](https://tgstation.github.io/tgui-core/?path=/docs/components-box--docs)
+ */
+export function Button(props: ButtonProps) {
+  const {
+    children,
+    circular,
+    startIcon,
+    endIcon,
+    disabled,
+    className,
+    innerStyle,
+    captureKeys,
+    onClick,
+    ...rest
+  } = props;
+  const interactions = useButton({
+    captureKeys,
+    disabled,
+    onClick,
+  });
+
+  return (
+    <ButtonContainer
+      className={clsx([circular && 'circular', className])}
+      {...rest}
+      {...interactions}
+    >
+      {startIcon && renderIcon(startIcon)}
+      {children && <ButtonContent innerStyle={innerStyle}>{children}</ButtonContent>}
+      {endIcon && renderIcon(endIcon)}
+    </ButtonContainer>
+  );
+}
+
 export function ButtonContainer(props: ButtonBaseProps) {
   const {
     children,
@@ -61,37 +101,5 @@ export function ButtonContent(props: ButtonContentProps) {
     <div className={clsx(className, 'button-content')} style={innerStyle}>
       {children}
     </div>
-  );
-}
-
-export function Button(props: ButtonProps) {
-  const {
-    children,
-    circular,
-    startIcon,
-    endIcon,
-    disabled,
-    className,
-    innerStyle,
-    captureKeys,
-    onClick,
-    ...rest
-  } = props;
-  const interactions = useButton({
-    captureKeys,
-    disabled,
-    onClick,
-  });
-
-  return (
-    <ButtonContainer
-      className={clsx([circular && 'circular', className])}
-      {...rest}
-      {...interactions}
-    >
-      {startIcon && renderIcon(startIcon)}
-      {children && <ButtonContent innerStyle={innerStyle}>{children}</ButtonContent>}
-      {endIcon && renderIcon(endIcon)}
-    </ButtonContainer>
   );
 }

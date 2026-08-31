@@ -49,12 +49,10 @@ export function Section(props: SectionProps) {
     containerId,
     fill,
     fitted,
-    flexGrow,
     noTopPadding,
     onScroll,
     ref,
     scrollable,
-    stretchContents,
     title,
     ...rest
   } = props;
@@ -115,8 +113,7 @@ export function Section(props: SectionProps) {
       className={clsx([
         'section',
         fill && 'fill',
-        fitted && 'fitted',
-        flexGrow && 'flex-grow',
+        scrollable && 'scrollable',
         className,
         computeBoxClassName(rest),
       ])}
@@ -135,8 +132,7 @@ export function Section(props: SectionProps) {
           ref={ourRef}
           className={clsx([
             'section-content',
-            scrollable && 'scrollable',
-            stretchContents && 'stretch-contents',
+            fitted && 'fitted',
             noTopPadding && 'no-top-padding',
           ])}
           onScroll={onScroll}

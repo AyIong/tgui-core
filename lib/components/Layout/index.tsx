@@ -13,13 +13,7 @@ import type { BoxProps } from '../Box/types';
 import type { LayoutProps } from './types';
 
 export function Layout(props: LayoutProps) {
-  const {
-    className,
-    theme = 'nanotrasen',
-    colorScheme = 'night',
-    children,
-    ...rest
-  } = props;
+  const { className, theme = 'nanotrasen', colorScheme = 'night', children, ...rest } = props;
 
   const themeClass = `theme-${theme} pref-${colorScheme}`;
   useEffect(() => {
@@ -44,11 +38,7 @@ function LayoutContent(props: BoxProps) {
     <div id="layout-root" className="layout-content-wrapper">
       <OverlayScrollbarsComponent
         defer
-        className={clsx([
-          'layout-content',
-          className,
-          computeBoxClassName(rest),
-        ])}
+        className={clsx(['layout-content', className, computeBoxClassName(rest)])}
         {...osOptions}
         {...computeBoxProps(rest)}
       >

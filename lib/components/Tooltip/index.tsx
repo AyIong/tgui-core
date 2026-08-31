@@ -20,12 +20,7 @@ import type { TooltipProps } from './types';
 export function Tooltip(props: TooltipProps) {
   const { content, children, position } = props;
   return (
-    <Floating
-      content={content}
-      contentClasses="tooltip"
-      hoverOpen
-      placement={position}
-    >
+    <Floating content={content} contentClasses="tooltip" hoverOpen placement={position}>
       {children}
     </Floating>
   );

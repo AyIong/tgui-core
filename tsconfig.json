@@ -15,11 +15,7 @@
       "@common/*": ["./lib/common/*.ts"],
       "@components": ["./lib/components/index.ts"],
       "@hooks": ["./lib/hooks/index.ts"],
-      "@stories/*": [
-        "./stories/*.ts",
-        "./stories/*.tsx",
-        "./lib/components/*.stories.tsx"
-      ]
+      "@stories/*": ["./stories/*.ts", "./stories/*.tsx", "./lib/components/*.stories.tsx"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

@@ -46,10 +46,7 @@ export function throttle<F extends (...args: any[]) => any>(
       fn(...args);
       previouslyRun = now;
     } else {
-      queuedToRun = setTimeout(
-        () => invokeFn(...args),
-        time - (now - (previouslyRun ?? 0)),
-      );
+      queuedToRun = setTimeout(() => invokeFn(...args), time - (now - (previouslyRun ?? 0)));
     }
   };
 }
@@ -70,10 +67,7 @@ export function sleep(time: number): Promise<void> {
  * @param {number} dTime Debounce time, default is 250
  */
 const debounceCache = new Map<string, (onChange: () => void) => void>();
-export function inputDebounce(
-  id: string,
-  dTime: number = 250,
-): (onChange: () => void) => void {
+export function inputDebounce(id: string, dTime: number = 250): (onChange: () => void) => void {
   let debounced = debounceCache.get(id);
   if (!debounced) {
     debounced = debounce((onChange: () => void) => onChange(), dTime);

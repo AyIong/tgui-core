@@ -10,16 +10,12 @@ export type SectionProps = Partial<{
   fill: boolean;
   /** If true, removes all section padding. */
   fitted: boolean;
-  /** If true, fills the area without forcing height to 100% */
-  flexGrow: boolean;
   /** If true, removes the section top padding */
   noTopPadding: boolean;
   /** @member Callback function for the `scroll` event */
   onScroll: ((this: GlobalEventHandlers, ev: Event) => any) | null;
   /** Shows or hides the scrollbar. */
   scrollable: boolean;
-  /** If true, filly the area except for -3rem */
-  stretchContents: boolean;
   /** Title of the section. */
   title: ReactNode;
 }> &

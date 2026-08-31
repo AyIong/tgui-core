@@ -4,6 +4,7 @@ import {
   type KeyboardEvent,
   type RefObject,
   useEffect,
+  useId,
   useState,
 } from 'react';
 import { isEscape, KEY } from 'tgui-core/common/keys';
@@ -36,10 +37,10 @@ function toStoredValue<TInput>(raw: string, isNumeric?: boolean): TInput {
   return (isNumeric ? Number(raw) : raw) as TInput;
 }
 
-export function useInput<
-  TElement extends WritableElement,
-  TInput extends string | number,
->(ref: RefObject<TElement>, props: useInputProps<TElement, TInput>) {
+export function useInput<TElement extends WritableElement, TInput extends string | number>(
+  ref: RefObject<TElement>,
+  props: useInputProps<TElement, TInput>,
+) {
   const {
     isNumeric,
     alwaysUpdate,
@@ -58,6 +59,7 @@ export function useInput<
 
   const emptyValue = (isNumeric ? 0 : '') as TInput;
   const [innerValue, setInnerValue] = useState<TInput>(value || emptyValue);
+  const id = useId();
 
   /** Updates the initial value on props change */
   useEffect(() => {
@@ -80,7 +82,7 @@ export function useInput<
 
     if (expensive) {
       const debounceTime = typeof expensive === 'number' ? expensive : 250;
-      inputDebounce(debounceTime)(() => onChange?.(value, event));
+      inputDebounce(id, debounceTime)(() => onChange?.(value, event));
     } else {
       onChange?.(value, event);
     }
@@ -96,10 +98,7 @@ export function useInput<
    * will be called only when you stop typing.
    */
   function handleChange(event: ChangeEvent<TElement>): void {
-    const finalValue = toStoredValue<TInput>(
-      event.currentTarget.value,
-      isNumeric,
-    );
+    const finalValue = toStoredValue<TInput>(event.currentTarget.value, isNumeric);
 
     setInnerValue(finalValue);
     tryOnChange(finalValue, event);
@@ -141,10 +140,7 @@ export function useInput<
     tryOnChange(newValue, event as any);
   }
 
-  function handleUserMarkup(
-    event: KeyboardEvent<TElement>,
-    userMarkup: string,
-  ) {
+  function handleUserMarkup(event: KeyboardEvent<TElement>, userMarkup: string) {
     event.preventDefault();
 
     let { value, selectionStart, selectionEnd } = event.currentTarget;
@@ -165,10 +161,7 @@ export function useInput<
     }
 
     onKeyDown?.(event);
-    const finalValue = toStoredValue<TInput>(
-      event.currentTarget.value,
-      isNumeric,
-    );
+    const finalValue = toStoredValue<TInput>(event.currentTarget.value, isNumeric);
 
     // Enter
     // Prevent calling it on Shift + Enter (save new line behaviour)
